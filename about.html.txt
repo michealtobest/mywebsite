@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Tobest - Digital Marketing Strategist</title>
+    <meta name="description" content="Meet Michael Tobest, founder of audience growth systems for creators and online communities.">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f0f1e;
+            --secondary: #1a1a2e;
+            --accent: #e94560;
+            --accent-orange: #f39422;
+            --accent-purple: #9b59b6;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: #2a2a3e;
+            --gradient: linear-gradient(135deg, #e94560 0%, #f39422 50%, #9b59b6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+
+        /* About Hero */
+        .about-hero {
+            padding: 160px 5% 100px;
+            background: radial-gradient(ellipse at top right, rgba(233, 69, 96, 0.1) 0%, transparent 50%);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid var(--border);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--secondary);
+            border: 2px solid var(--accent);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .experience-badge h3 {
+            font-size: 3rem;
+            color: var(--accent-orange);
+            line-height: 1;
+        }
+
+        .experience-badge p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .about-text h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .about-text h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text .subtitle {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 100px 5%;
+            background: var(--secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        .values-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Process Philosophy */
+        .philosophy {
+            padding: 100px 5%;
+        }
+
+        .philosophy-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .philosophy-content > p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 60px;
+        }
+
+        .philosophy-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            text-align: left;
+        }
+
+        .philosophy-point {
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .philosophy-point h3 {
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .philosophy-point p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 5%;
+            background: var(--secondary);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            padding: 60px 5% 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 20px;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: var(--text);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .experience-badge {
+                right: 0;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-points {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="image.png" alt="Tobest">
+        </a>
+        <ul class="nav-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">Request a Review</a>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="about-content">
+            <div class="about-text">
+                <h1>Hi, I'm <span>Michael Tobest</span></h1>
+                <p class="subtitle">Founder & Lead Strategist</p>
+                <p>I work with creators, educators, and community-driven brands that rely on audience engagement to grow their programs and impact.</p>
+                <p>My focus is not just marketing campaigns but building sustainable growth systems that continue bringing the right audience into your ecosystem long after implementation.</p>
+                <p>Over the past 9 years, I've supported projects involving audience growth strategies, digital product promotion, community engagement systems, and marketing funnels for online brands and creator businesses.</p>
+                <p>I believe great results come from strong leadership, teamwork, and truly listening to people. I take pride in being a good listener and a practical problem solver who values the strength of a united team.</p>
+            </div>
+            <div class="about-image">
+                <img src="d6732c65-af67-401d-8b01-ea3206c6c9b8.png" alt="Michael Tobest">
+                <div class="experience-badge">
+                    <h3>9</h3>
+                    <p>Years<br>Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values">
+        <div class="section-header">
+            <h2>How I Work</h2>
+            <p>Three core principles guide every project I take on.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">👂</div>
+                <h3>Listen First</h3>
+                <p>Before proposing solutions, I take time to deeply understand your challenges, goals, and audience. The best strategies come from truly listening.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>Systems Over Tactics</h3>
+                <p>Anyone can run a campaign. I build sustainable systems that keep working long after the initial launch, creating compounding growth.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>True Partnership</h3>
+                <p>I treat every project as a collaboration. Your success is my success, and I'm committed to delivering real, measurable results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy">
+        <div class="philosophy-content">
+            <h2>Why Creators & Communities?</h2>
+            <p>I've always been drawn to working with people who create value for others. Authors, coaches, educators, community builders—these are people making real impact. My role is to help them reach more of the people who need their work.</p>
+            
+            <div class="philosophy-points">
+                <div class="philosophy-point">
+                    <h3>The Problem I Solve</h3>
+                    <p>Most creators are excellent at their craft but struggle with visibility. They create amazing content, courses, and communities—but the right people don't find them. I bridge that gap.</p>
+                </div>
+                <div class="philosophy-point">
+                    <h3>My Approach</h3>
+                    <p>No hacks. No shortcuts. Just strategic systems built on understanding your audience, creating genuine value, and consistent execution. Sustainable growth beats viral moments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's Work Together</h2>
+            <p>If you're looking to expand your visibility, grow your community, or improve how your audience converts into customers, I'd be happy to explore how I can help.</p>
+            <a href="contact.html" class="btn-primary">Start a Conversation →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="image.png" alt="Tobest" style="height: 40px;">
+                <p>Audience growth and visibility systems for creators, coaches, and online communities.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Audience Growth</a></li>
+                    <li><a href="services.html">Visibility Campaigns</a></li>
+                    <li><a href="services.html">Email Systems</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:Valuedprocess@gmail.com">Valuedprocess@gmail.com</a></li>
+                    <li><a href="https://wa.me/12703135070">+1 (270) 313-5070</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tobest. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
