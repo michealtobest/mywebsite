@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Tobest - Real Results for Creators</title>
+    <meta name="description" content="See real results from audience growth and visibility campaigns for creators, coaches, and online communities.">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f0f1e;
+            --secondary: #1a1a2e;
+            --accent: #e94560;
+            --accent-orange: #f39422;
+            --accent-purple: #9b59b6;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: #2a2a3e;
+            --gradient: linear-gradient(135deg, #e94560 0%, #f39422 50%, #9b59b6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 160px 5% 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at top right, rgba(233, 69, 96, 0.1) 0%, transparent 50%);
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-header h1 .highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Case Studies */
+        .case-studies-section {
+            padding: 80px 5%;
+        }
+
+        .case-study-large {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            background: var(--secondary);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .case-study-header {
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .case-study-meta {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .meta-item.tag {
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .case-study-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .case-study-header > p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        .case-study-content {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .challenge-solution h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-orange);
+        }
+
+        .challenge-solution p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .results-sidebar {
+            background: var(--primary);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid var(--border);
+        }
+
+        .results-sidebar h4 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .result-stat {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .result-stat:last-child {
+            border-bottom: none;
+        }
+
+        .result-stat h5 {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 5px;
+        }
+
+        .result-stat p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .case-study-image {
+            width: 100%;
+            padding: 0 50px 50px;
+        }
+
+        .case-study-image img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        /* Smaller Case Studies */
+        .case-studies-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .case-study-card {
+            background: var(--secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.4s;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .case-study-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .case-study-card-content {
+            padding: 30px;
+        }
+
+        .case-study-card-content .tag {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .case-study-card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .case-study-card-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .case-results-inline {
+            display: flex;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .case-results-inline div h5 {
+            font-size: 1.5rem;
+            color: var(--accent-orange);
+        }
+
+        .case-results-inline div p {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 5%;
+            background: var(--secondary);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            padding: 60px 5% 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 20px;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: var(--text);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 968px) {
+            .case-study-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .case-study-header, .case-study-content {
+                padding: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="image.png" alt="Tobest">
+        </a>
+        <ul class="nav-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">Request a Review</a>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Real Results for <span class="highlight">Real Creators</span></h1>
+        <p>While every project is different, here are some outcomes from recent work with creators, coaches, and communities.</p>
+    </section>
+
+    <!-- Featured Case Study -->
+    <section class="case-studies-section">
+        <div class="case-study-large">
+            <div class="case-study-header">
+                <div class="case-study-meta">
+                    <span class="meta-item tag">Email Marketing</span>
+                    <span class="meta-item">📅 3 months</span>
+                    <span class="meta-item">💼 Writing Coach</span>
+                </div>
+                <h2>Newsletter Growth & Monetization</h2>
+                <p>A writing coach struggling with inconsistent audience growth and low email engagement needed a systematic approach to build their list and convert subscribers into paying clients.</p>
+            </div>
+            <div class="case-study-content">
+                <div class="challenge-solution">
+                    <h3>The Challenge</h3>
+                    <p>Despite creating valuable content, the client's newsletter growth was stagnant at 1,200 subscribers. Open rates were declining, and there was no clear path from subscriber to paying client. Previous sporadic marketing efforts yielded inconsistent results.</p>
+                    
+                    <h3>The Solution</h3>
+                    <p>Implemented a comprehensive email growth strategy including lead magnet optimization, welcome sequence redesign, and automated nurture campaigns. Created targeted content buckets aligned with audience pain points and established consistent sending schedule.</p>
+                    
+                    <h3>Key Strategies Used</h3>
+                    <p>• Optimized lead magnets for higher conversion<br>
+                    • Redesigned onboarding sequence (7 emails)<br>
+                    • Segmented audience based on interests<br>
+                    • Implemented re-engagement campaigns<br>
+                    • Created promotional sequences for offers</p>
+                </div>
+                <div class="results-sidebar">
+                    <h4>Results After 90 Days</h4>
+                    <div class="result-stat">
+                        <h5>8,500</h5>
+                        <p>Total Subscribers</p>
+                    </div>
+                    <div class="result-stat">
+                        <h5>230%</h5>
+                        <p>Growth Rate</p>
+                    </div>
+                    <div class="result-stat">
+                        <h5>$25K</h5>
+                        <p>Revenue Generated</p>
+                    </div>
+                    <div class="result-stat">
+                        <h5>42%</h5>
+                        <p>Avg. Open Rate</p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-study-image">
+                <img src="5e615a0f674680ec274fb0d8380097c0.jpg" alt="Email Campaign Results">
+            </div>
+        </div>
+
+        <!-- Other Case Studies -->
+        <div class="case-studies-grid">
+            <div class="case-study-card">
+                <img src="coach.jpg" alt="Fitness Coach Funnel">
+                <div class="case-study-card-content">
+                    <span class="tag">Course Launch</span>
+                    <h3>Fitness Coaching Program Launch</h3>
+                    <p>Complete funnel redesign and strategic promotion for an online fitness coaching program.</p>
+                    <div class="case-results-inline">
+                        <div>
+                            <h5>3x</h5>
+                            <p>Enrollments</p>
+                        </div>
+                        <div>
+                            <h5>40%</h5>
+                            <p>Conversion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <img src="ddddd9567810a4d9cf414ebc096418cd.jpg" alt="Membership Growth">
+                <div class="case-study-card-content">
+                    <span class="tag">Community</span>
+                    <h3>TV Membership Platform Growth</h3>
+                    <p>Strategic visibility campaign and membership funnel optimization for streaming service.</p>
+                    <div class="case-results-inline">
+                        <div>
+                            <h5>180%</h5>
+                            <p>Member Growth</p>
+                        </div>
+                        <div>
+                            <h5>65%</h5>
+                            <p>Retention</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <img src="cd1ffc3918a18ce581be087c710fb063.jpg" alt="Online Course">
+                <div class="case-study-card-content">
+                    <span class="tag">Funnel Design</span>
+                    <h3>Chiropractic Course Funnel</h3>
+                    <p>High-converting funnel design for professional training program with automated sequences.</p>
+                    <div class="case-results-inline">
+                        <div>
+                            <h5>5.2%</h5>
+                            <p>Conv. Rate</p>
+                        </div>
+                        <div>
+                            <h5>$18K</h5>
+                            <p>First Month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready for Your Own Success Story?</h2>
+            <p>Every creator's journey is different, but systematic growth works across niches. Let's discuss how these strategies could work for your specific situation.</p>
+            <a href="contact.html" class="btn-primary">Start Your Project →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="image.png" alt="Tobest" style="height: 40px;">
+                <p>Audience growth and visibility systems for creators, coaches, and online communities.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Audience Growth</a></li>
+                    <li><a href="services.html">Visibility Campaigns</a></li>
+                    <li><a href="services.html">Email Systems</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:Valuedprocess@gmail.com">Valuedprocess@gmail.com</a></li>
+                    <li><a href="https://wa.me/12703135070">+1 (270) 313-5070</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tobest. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
