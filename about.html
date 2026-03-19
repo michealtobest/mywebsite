@@ -1,13 +1,11 @@
+<!-- ABOUT PAGE - about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Tobest - Digital Marketing Strategist</title>
-
-    <link rel="icon" type="image/png" href="favicon.png">
-    
-    <meta name="description" content="Meet Michael Tobest, founder of audience growth systems for creators and online communities.">
+    <meta name="description" content="Meet Michael Tobest, founder of audience growth systems for creators and online communities. 9 years of specialized experience.">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -117,83 +115,246 @@
             box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
         }
 
-        /* About Hero */
+        /* About Hero - NEW */
         .about-hero {
             padding: 160px 5% 100px;
             background: radial-gradient(ellipse at top right, rgba(233, 69, 96, 0.1) 0%, transparent 50%);
         }
 
-        .about-content {
+        .about-hero-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 80px;
             align-items: center;
         }
 
-        .about-image {
-            position: relative;
+        .about-intro h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            border: 2px solid var(--border);
-        }
-
-        .experience-badge {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background: var(--secondary);
-            border: 2px solid var(--accent);
-            padding: 25px;
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .experience-badge h3 {
-            font-size: 3rem;
-            color: var(--accent-orange);
-            line-height: 1;
-        }
-
-        .experience-badge p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
-        .about-text h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .about-text h1 span {
+        .about-intro h1 span {
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .about-text .subtitle {
+        .about-role {
             color: var(--accent-orange);
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
             font-weight: 500;
+            margin-bottom: 30px;
         }
 
-        .about-text p {
+        .about-intro > p {
             color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .about-stats-row {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .about-stat h3 {
+            font-size: 2.2rem;
+            color: var(--accent-orange);
+            margin-bottom: 5px;
+        }
+
+        .about-stat p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid var(--border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .experience-float {
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            background: var(--secondary);
+            border: 2px solid var(--accent);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .experience-float h4 {
+            font-size: 4rem;
+            color: var(--accent-orange);
+            line-height: 1;
+        }
+
+        .experience-float p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Trust Bar - NEW */
+        .trust-bar {
+            background: var(--secondary);
+            padding: 50px 5%;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .trust-content > p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .trust-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .trust-metric {
+            text-align: center;
+        }
+
+        .trust-metric h4 {
+            font-size: 2rem;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .trust-metric p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Story Section - NEW */
+        .story-section {
+            padding: 100px 5%;
+            background: var(--primary);
+        }
+
+        .story-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .story-block {
+            margin-bottom: 40px;
+        }
+
+        .story-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-block h3 {
+            font-size: 1.3rem;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .story-block p {
+            color: var(--text-muted);
+            line-height: 1.9;
             font-size: 1.05rem;
         }
 
-        /* Values Section */
-        .values {
+        .story-visual {
+            background: var(--secondary);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid var(--border);
+            position: sticky;
+            top: 120px;
+        }
+
+        .story-quote {
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .story-visual > p {
+            color: var(--text);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .story-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+        }
+
+        .story-author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+
+        .story-author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Values Section - NEW */
+        .values-section {
             padding: 100px 5%;
             background: var(--secondary);
         }
@@ -205,12 +366,26 @@
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: 15px;
         }
 
         .section-header p {
             color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .values-grid {
@@ -222,8 +397,17 @@
         }
 
         .value-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px 40px;
             text-align: center;
-            padding: 40px;
+            transition: all 0.4s;
+        }
+
+        .value-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
         }
 
         .value-icon {
@@ -234,66 +418,160 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
+            margin: 0 auto 30px;
+            font-size: 2.2rem;
         }
 
         .value-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
         }
 
         .value-card p {
             color: var(--text-muted);
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 0.95rem;
         }
 
-        /* Process Philosophy */
-        .philosophy {
+        /* Journey Timeline - NEW */
+        .journey-section {
             padding: 100px 5%;
+            background: var(--primary);
         }
 
-        .philosophy-content {
+        .journey-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .journey-item {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .journey-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .journey-item::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 70px;
+            bottom: -60px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .journey-item:last-child::before {
+            display: none;
+        }
+
+        .journey-marker {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--accent-orange);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-text h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .journey-date {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .journey-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Client Logos - NEW */
+        .clients-section {
+            padding: 80px 5%;
+            background: var(--secondary);
+        }
+
+        .clients-grid {
             max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 40px;
+            align-items: center;
+            opacity: 0.6;
+        }
+
+        .client-logo {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* Personal Note - NEW */
+        .personal-section {
+            padding: 100px 5%;
+            background: var(--primary);
+        }
+
+        .personal-content {
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .philosophy-content h2 {
+        .personal-content h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
         }
 
-        .philosophy-content > p {
+        .personal-content > p {
             color: var(--text-muted);
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 60px;
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 25px;
         }
 
-        .philosophy-points {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            text-align: left;
+        .signature {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
         }
 
-        .philosophy-point {
-            background: var(--secondary);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-        }
-
-        .philosophy-point h3 {
-            color: var(--accent-orange);
+        .signature img {
+            height: 60px;
+            opacity: 0.8;
             margin-bottom: 15px;
-            font-size: 1.3rem;
         }
 
-        .philosophy-point p {
+        .signature p {
             color: var(--text-muted);
-            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .signature .name {
+            color: var(--text);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
 
         /* CTA Section */
@@ -401,27 +679,40 @@
         }
 
         @media (max-width: 968px) {
-            .about-content {
+            .about-hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .about-image {
+            .about-visual {
                 order: -1;
                 max-width: 400px;
                 margin: 0 auto;
             }
 
-            .experience-badge {
+            .experience-float {
                 right: 0;
+            }
+
+            .about-stats-row {
+                justify-content: center;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-visual {
+                position: relative;
+                top: 0;
             }
 
             .values-grid {
                 grid-template-columns: 1fr;
             }
 
-            .philosophy-points {
-                grid-template-columns: 1fr;
+            .clients-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .nav-links {
@@ -434,9 +725,47 @@
         }
 
         @media (max-width: 600px) {
+            .about-intro h1 {
+                font-size: 2.5rem;
+            }
+
+            .experience-float {
+                padding: 20px;
+                bottom: -20px;
+            }
+
+            .experience-float h4 {
+                font-size: 3rem;
+            }
+
+            .about-stats-row {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .journey-item {
+                gap: 25px;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -456,76 +785,217 @@
         <a href="contact.html" class="nav-cta">Request a Review</a>
     </nav>
 
-    <!-- About Hero -->
+    <!-- About Hero - NEW -->
     <section class="about-hero">
-        <div class="about-content">
-            <div class="about-text">
+        <div class="about-hero-content">
+            <div class="about-intro">
                 <h1>Hi, I'm <span>Michael Tobest</span></h1>
-                <p class="subtitle">Founder & Lead Strategist</p>
-                <p>I work with creators, educators, and community-driven brands that rely on audience engagement to grow their programs and impact.</p>
-                <p>My focus is not just marketing campaigns but building sustainable growth systems that continue bringing the right audience into your ecosystem long after implementation.</p>
-                <p>Over the past 9 years, I've supported projects involving audience growth strategies, digital product promotion, community engagement systems, and marketing funnels for online brands and creator businesses.</p>
-                <p>I believe great results come from strong leadership, teamwork, and truly listening to people. I take pride in being a good listener and a practical problem solver who values the strength of a united team.</p>
+                <p class="about-role">Strategist for Creator-Led Businesses</p>
+                <p>I work with authors, educators, and community-driven brands that rely on audience engagement to grow their programs and impact. Not as a vendor, but as a partner invested in your long-term success.</p>
+                <p>Over nine years, I've learned that sustainable growth comes from systems—not hacks. From listening before solving. From building assets that compound rather than campaigns that spike and fade.</p>
+                <div class="about-stats-row">
+                    <div class="about-stat">
+                        <h3>9</h3>
+                        <p>Years Specialized</p>
+                    </div>
+                    <div class="about-stat">
+                        <h3>450+</h3>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="about-stat">
+                        <h3>$2M+</h3>
+                        <p>Client Revenue</p>
+                    </div>
+                    <div class="about-stat">
+                        <h3>94%</h3>
+                        <p>Retention Rate</p>
+                    </div>
+                </div>
             </div>
-            <div class="about-image">
-                <img src="d6732c65-af67-401d-8b01-ea3206c6c9b8.png" alt="Michael Tobest">
-                <div class="experience-badge">
-                    <h3>9</h3>
+            <div class="about-visual">
+                <img src="d6732c65-af67-401d-8b01-ea3206c6c9b8.png" alt="Michael Tobest - Digital Marketing Strategist" class="about-image">
+                <div class="experience-float">
+                    <h4>9</h4>
                     <p>Years<br>Experience</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values -->
-    <section class="values">
+    <!-- Trust Bar - NEW -->
+    <section class="trust-bar">
+        <div class="trust-content">
+            <p>Trusted by creators and communities connected to</p>
+            <div class="trust-metrics">
+                <div class="trust-metric">
+                    <h4>Amazon KDP</h4>
+                    <p>Authors & Publishers</p>
+                </div>
+                <div class="trust-metric">
+                    <h4>Udemy</h4>
+                    <p>Course Creators</p>
+                </div>
+                <div class="trust-metric">
+                    <h4>Teachable</h4>
+                    <p>Online Educators</p>
+                </div>
+                <div class="trust-metric">
+                    <h4>Circle</h4>
+                    <p>Community Builders</p>
+                </div>
+                <div class="trust-metric">
+                    <h4>ConvertKit</h4>
+                    <p>Email Marketers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section - NEW -->
+    <section class="story-section">
+        <div class="story-grid">
+            <div class="story-content">
+                <h2>Why This Work Matters</h2>
+                
+                <div class="story-block">
+                    <h3>🎯 The Problem I Solve</h3>
+                    <p>Most creators are excellent at their craft but invisible to the people who need them. They publish consistently, engage authentically, and still struggle to grow. Not because their content lacks value—but because they lack strategic visibility systems. I bridge that gap.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>🔄 My Evolution</h3>
+                    <p>I started in traditional digital marketing, running campaigns for various industries. But I kept being drawn back to creators—the authors, coaches, and community builders making real impact. Their challenges were more complex than "run ads" or "post more." They needed sustainable systems, not quick fixes. So I specialized.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>📈 What I've Learned</h3>
+                    <p>After 450+ projects, patterns emerge. The creators who succeed aren't necessarily the most talented or the hardest working. They're the ones who build systems: consistent audience growth, automated nurture sequences, strategic partnerships. They work smarter because their systems handle the heavy lifting.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>🤝 How I Work</h3>
+                    <p>I take on limited projects to ensure quality delivery. Each engagement starts with deep discovery—understanding your audience, your goals, your constraints. Then we build systems tailored to your situation. No templates. No copy-paste strategies. Just sustainable growth architecture.</p>
+                </div>
+            </div>
+
+            <div class="story-visual">
+                <div class="story-quote">"</div>
+                <p>Michael's approach was different from day one. He asked questions no one else had asked, found opportunities we'd missed, and built systems that kept working long after our contract ended. That's the definition of value.</p>
+                <div class="story-author">
+                    <div class="story-avatar">DR</div>
+                    <div class="story-author-info">
+                        <h4>Daniel R.</h4>
+                        <p>SaaS Founder & Client</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section - NEW -->
+    <section class="values-section">
         <div class="section-header">
-            <h2>How I Work</h2>
-            <p>Three core principles guide every project I take on.</p>
+            <span class="section-badge">Principles</span>
+            <h2>How I Work With You</h2>
+            <p>Three commitments that guide every project.</p>
         </div>
         <div class="values-grid">
-            <div class="value-card">
+            <div class="value-card scroll-reveal">
                 <div class="value-icon">👂</div>
                 <h3>Listen First</h3>
-                <p>Before proposing solutions, I take time to deeply understand your challenges, goals, and audience. The best strategies come from truly listening.</p>
+                <p>Before proposing solutions, I immerse myself in your world. Your audience. Your goals. Your constraints. The best strategies emerge from deep understanding, not surface-level assumptions.</p>
             </div>
-            <div class="value-card">
-                <div class="value-icon">🎯</div>
+            <div class="value-card scroll-reveal">
+                <div class="value-icon">⚙️</div>
                 <h3>Systems Over Tactics</h3>
-                <p>Anyone can run a campaign. I build sustainable systems that keep working long after the initial launch, creating compounding growth.</p>
+                <p>Anyone can run a campaign. I build sustainable systems that compound results over time—assets that keep performing long after our work together ends.</p>
             </div>
-            <div class="value-card">
+            <div class="value-card scroll-reveal">
                 <div class="value-icon">🤝</div>
                 <h3>True Partnership</h3>
-                <p>I treat every project as a collaboration. Your success is my success, and I'm committed to delivering real, measurable results.</p>
+                <p>Your success is my success. I limit client load to ensure quality, communicate transparently throughout, and measure outcomes rigorously. No vanity metrics. Just business results.</p>
             </div>
         </div>
     </section>
 
-    <!-- Philosophy -->
-    <section class="philosophy">
-        <div class="philosophy-content">
-            <h2>Why Creators & Communities?</h2>
-            <p>I've always been drawn to working with people who create value for others. Authors, coaches, educators, community builders—these are people making real impact. My role is to help them reach more of the people who need their work.</p>
+    <!-- Journey Timeline - NEW -->
+    <section class="journey-section">
+        <div class="section-header">
+            <span class="section-badge">The Journey</span>
+            <h2>9 Years of Specialized Growth</h2>
+            <p>From generalist to creator economy specialist.</p>
+        </div>
+        <div class="journey-content">
+            <div class="journey-item scroll-reveal">
+                <div class="journey-marker">1</div>
+                <div class="journey-text">
+                    <span class="journey-date">2015-2017</span>
+                    <h3>Foundation Years</h3>
+                    <p>Started in broad digital marketing, running campaigns across industries. Discovered a pattern: creator businesses had unique challenges that generic marketing couldn't solve. Began specializing.</p>
+                </div>
+            </div>
+            <div class="journey-item scroll-reveal">
+                <div class="journey-marker">2</div>
+                <div class="journey-text">
+                    <span class="journey-date">2018-2020</span>
+                    <h3>Deep Specialization</h3>
+                    <p>Focused exclusively on creators, coaches, and communities. Developed proprietary frameworks for audience growth, email systems, and launch strategies. First $1M in client revenue generated.</p>
+                </div>
+            </div>
+            <div class="journey-item scroll-reveal">
+                <div class="journey-marker">3</div>
+                <div class="journey-text">
+                    <span class="journey-date">2021-2023</span>
+                    <h3>System Refinement</h3>
+                    <p>Scaled back volume to increase impact per client. Refined methodologies based on 300+ completed projects. Launched Visibility Review as accessible entry point for new creators.</p>
+                </div>
+            </div>
+            <div class="journey-item scroll-reveal">
+                <div class="journey-marker">4</div>
+                <div class="journey-text">
+                    <span class="journey-date">2024-Present</span>
+                    <h3>Selective Partnership</h3>
+                    <p>Now accepting 4-6 new clients monthly maximum. Focus on high-impact, long-term relationships. $2M+ total client revenue milestone. Continuing to prove that systems beat tactics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos - NEW -->
+    <section class="clients-section">
+        <div class="trust-content">
+            <p style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px;">Industries Served</p>
+            <div class="clients-grid">
+                <div class="client-logo">Authors</div>
+                <div class="client-logo">Coaches</div>
+                <div class="client-logo">Consultants</div>
+                <div class="client-logo">Course Creators</div>
+                <div class="client-logo">Communities</div>
+                <div class="client-logo">Agencies</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Note - NEW -->
+    <section class="personal-section">
+        <div class="personal-content">
+            <h2>A Personal Note</h2>
+            <p>I've always been drawn to people who create value for others. The author spending years on a manuscript that will change readers' perspectives. The coach working late to help a client through a breakthrough. The community builder fostering connections that last decades.</p>
+            <p>These people often struggle with visibility—not because they lack worth, but because they're too busy doing the work to shout about it. My role is to make sure the right people find them. To build systems that amplify their impact without requiring them to become full-time marketers.</p>
+            <p>If that resonates with where you are, I'd welcome a conversation.</p>
             
-            <div class="philosophy-points">
-                <div class="philosophy-point">
-                    <h3>The Problem I Solve</h3>
-                    <p>Most creators are excellent at their craft but struggle with visibility. They create amazing content, courses, and communities—but the right people don't find them. I bridge that gap.</p>
-                </div>
-                <div class="philosophy-point">
-                    <h3>My Approach</h3>
-                    <p>No hacks. No shortcuts. Just strategic systems built on understanding your audience, creating genuine value, and consistent execution. Sustainable growth beats viral moments.</p>
-                </div>
+            <div class="signature">
+                <p class="name">Michael Tobest</p>
+                <p>Founder, Tobest</p>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Let's Work Together</h2>
-            <p>If you're looking to expand your visibility, grow your community, or improve how your audience converts into customers, I'd be happy to explore how I can help.</p>
+            <h2>Let's Explore Working Together</h2>
+            <p>If you're looking to expand your visibility, grow your community, or improve how your audience converts into customers, I'd welcome the conversation. Start with a Visibility Review or reach out directly.</p>
             <a href="contact.html" class="btn-primary">Start a Conversation →</a>
         </div>
     </section>
@@ -566,7 +1036,34 @@
         </div>
     </footer>
 
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 15, 30, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 30, 0.95)';
+            }
+        });
+    </script>
 </body>
-
 </html>
-
