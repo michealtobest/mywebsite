@@ -1,12 +1,10 @@
+<!-- CASE STUDIES PAGE - case-studies.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies | Tobest - Real Results for Creators</title>
-
-    <link rel="icon" type="image/png" href="favicon.png">
-    
     <meta name="description" content="See real results from audience growth and visibility campaigns for creators, coaches, and online communities.">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -141,196 +139,552 @@
             color: var(--text-muted);
             font-size: 1.2rem;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 40px;
         }
 
-        /* Case Studies */
-        .case-studies-section {
-            padding: 80px 5%;
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 50px;
         }
 
-        .case-study-large {
+        .header-stat h3 {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 5px;
+        }
+
+        .header-stat p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Filter Tabs - NEW */
+        .filter-section {
+            background: var(--secondary);
+            padding: 30px 5%;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+        }
+
+        .filter-container {
             max-width: 1200px;
-            margin: 0 auto 80px;
+            margin: 0 auto;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient);
+            border-color: transparent;
+            color: white;
+        }
+
+        /* Featured Case Study - NEW */
+        .featured-case {
+            padding: 100px 5%;
+            background: var(--primary);
+        }
+
+        .featured-container {
+            max-width: 1200px;
+            margin: 0 auto;
             background: var(--secondary);
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid var(--border);
         }
 
-        .case-study-header {
+        .featured-header {
             padding: 50px;
-            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.08) 0%, rgba(155, 89, 182, 0.08) 100%);
             border-bottom: 1px solid var(--border);
         }
 
-        .case-study-meta {
+        .featured-meta {
             display: flex;
             gap: 30px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
         }
 
+        .meta-tag {
+            background: rgba(233, 69, 96, 0.15);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
         .meta-item {
+            color: var(--text-muted);
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
-        .meta-item.tag {
-            background: rgba(233, 69, 96, 0.1);
-            color: var(--accent);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        .case-study-header h2 {
-            font-size: 2.5rem;
+        .featured-header h2 {
+            font-size: 2.8rem;
             margin-bottom: 15px;
         }
 
-        .case-study-header > p {
+        .featured-header > p {
             color: var(--text-muted);
             font-size: 1.1rem;
             max-width: 700px;
+            line-height: 1.7;
         }
 
-        .case-study-content {
-            padding: 50px;
+        .featured-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 50px;
+            gap: 0;
         }
 
-        .challenge-solution h3 {
+        .featured-story {
+            padding: 50px;
+        }
+
+        .story-section {
+            margin-bottom: 40px;
+        }
+
+        .story-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-section h3 {
             font-size: 1.3rem;
-            margin-bottom: 15px;
             color: var(--accent-orange);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .challenge-solution p {
+        .story-section p {
             color: var(--text-muted);
-            margin-bottom: 30px;
             line-height: 1.8;
+            font-size: 1rem;
         }
 
-        .results-sidebar {
+        .story-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .story-list li {
+            padding: 10px 0;
+            color: var(--text);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .story-list li::before {
+            content: '→';
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        .featured-results {
             background: var(--primary);
-            border-radius: 16px;
-            padding: 30px;
-            border: 1px solid var(--border);
+            padding: 50px;
+            border-left: 1px solid var(--border);
         }
 
-        .results-sidebar h4 {
+        .results-title {
             font-size: 1.1rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-align: center;
+            color: var(--text);
         }
 
-        .result-stat {
+        .result-item {
             text-align: center;
-            padding: 20px 0;
+            padding: 25px 0;
             border-bottom: 1px solid var(--border);
         }
 
-        .result-stat:last-child {
+        .result-item:last-child {
             border-bottom: none;
         }
 
-        .result-stat h5 {
-            font-size: 2.5rem;
+        .result-item h4 {
+            font-size: 2.8rem;
             color: var(--accent-orange);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            line-height: 1;
         }
 
-        .result-stat p {
+        .result-item p {
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
-        .case-study-image {
-            width: 100%;
+        .featured-image {
             padding: 0 50px 50px;
+            grid-column: 1 / -1;
         }
 
-        .case-study-image img {
+        .featured-image img {
             width: 100%;
             border-radius: 12px;
             border: 1px solid var(--border);
         }
 
-        /* Smaller Case Studies */
-        .case-studies-grid {
+        /* Case Studies Grid */
+        .case-studies-section {
+            padding: 100px 5%;
+            background: var(--secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .case-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
-        .case-study-card {
-            background: var(--secondary);
+        .case-card {
+            background: var(--primary);
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid var(--border);
             transition: all 0.4s;
         }
 
-        .case-study-card:hover {
+        .case-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
 
-        .case-study-card img {
+        .case-card.hidden {
+            display: none;
+        }
+
+        .case-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            background: var(--secondary);
         }
 
-        .case-study-card-content {
-            padding: 30px;
+        .case-content {
+            padding: 35px;
         }
 
-        .case-study-card-content .tag {
+        .case-tag {
             display: inline-block;
             background: rgba(233, 69, 96, 0.1);
             color: var(--accent);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
             margin-bottom: 15px;
         }
 
-        .case-study-card-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+        .case-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
         }
 
-        .case-study-card-content p {
+        .case-content > p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
 
-        .case-results-inline {
+        .case-results {
             display: flex;
-            gap: 20px;
-            padding-top: 20px;
+            gap: 25px;
+            padding-top: 25px;
             border-top: 1px solid var(--border);
         }
 
-        .case-results-inline div h5 {
-            font-size: 1.5rem;
+        .case-result h4 {
+            font-size: 1.6rem;
             color: var(--accent-orange);
+            margin-bottom: 5px;
         }
 
-        .case-results-inline div p {
+        .case-result p {
             font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Timeline Section - NEW */
+        .timeline-section {
+            padding: 100px 5%;
+            background: var(--primary);
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            width: 90%;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 35px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -60px;
+        }
+
+        .timeline-date {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Testimonial Spotlight - NEW */
+        .spotlight-section {
+            padding: 100px 5%;
+            background: var(--secondary);
+        }
+
+        .spotlight-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .spotlight-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
+        }
+
+        .spotlight-card.featured {
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(233, 69, 96, 0.05) 100%);
+            border-color: var(--accent);
+        }
+
+        .spotlight-quote {
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .spotlight-card p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+
+        .spotlight-result {
+            display: inline-block;
+            background: rgba(243, 148, 34, 0.1);
+            color: var(--accent-orange);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .spotlight-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .spotlight-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .spotlight-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .spotlight-info p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
             margin: 0;
+        }
+
+        /* Methodology Section - NEW */
+        .methodology-section {
+            padding: 100px 5%;
+            background: var(--primary);
+        }
+
+        .method-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .method-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .method-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+        }
+
+        .method-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .method-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .method-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         /* CTA Section */
@@ -438,8 +792,47 @@
         }
 
         @media (max-width: 968px) {
-            .case-study-content {
+            .featured-content {
                 grid-template-columns: 1fr;
+            }
+
+            .featured-results {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .spotlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .method-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline-container::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 60px;
+                padding-right: 0;
+            }
+
+            .timeline-content::before,
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -50px;
+                right: auto;
+            }
+
+            .header-stats {
+                gap: 30px;
             }
 
             .nav-links {
@@ -452,13 +845,35 @@
         }
 
         @media (max-width: 600px) {
-            .case-study-header, .case-study-content {
+            .featured-header,
+            .featured-story,
+            .featured-results {
                 padding: 30px;
+            }
+
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-header h2 {
+                font-size: 2rem;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -481,118 +896,330 @@
     <!-- Page Header -->
     <section class="page-header">
         <h1>Real Results for <span class="highlight">Real Creators</span></h1>
-        <p>While every project is different, here are some outcomes from recent work with creators, coaches, and communities.</p>
-    </section>
-
-    <!-- Featured Case Study -->
-    <section class="case-studies-section">
-        <div class="case-study-large">
-            <div class="case-study-header">
-                <div class="case-study-meta">
-                    <span class="meta-item tag">Email Marketing</span>
-                    <span class="meta-item">📅 3 months</span>
-                    <span class="meta-item">💼 Writing Coach</span>
-                </div>
-                <h2>Newsletter Growth & Monetization</h2>
-                <p>A writing coach struggling with inconsistent audience growth and low email engagement needed a systematic approach to build their list and convert subscribers into paying clients.</p>
+        <p>While every project is different, here are detailed outcomes from recent work with creators, coaches, and communities.</p>
+        <div class="header-stats">
+            <div class="header-stat">
+                <h3>$2M+</h3>
+                <p>Client Revenue</p>
             </div>
-            <div class="case-study-content">
-                <div class="challenge-solution">
-                    <h3>The Challenge</h3>
-                    <p>Despite creating valuable content, the client's newsletter growth was stagnant at 1,200 subscribers. Open rates were declining, and there was no clear path from subscriber to paying client. Previous sporadic marketing efforts yielded inconsistent results.</p>
-                    
-                    <h3>The Solution</h3>
-                    <p>Implemented a comprehensive email growth strategy including lead magnet optimization, welcome sequence redesign, and automated nurture campaigns. Created targeted content buckets aligned with audience pain points and established consistent sending schedule.</p>
-                    
-                    <h3>Key Strategies Used</h3>
-                    <p>• Optimized lead magnets for higher conversion<br>
-                    • Redesigned onboarding sequence (7 emails)<br>
-                    • Segmented audience based on interests<br>
-                    • Implemented re-engagement campaigns<br>
-                    • Created promotional sequences for offers</p>
-                </div>
-                <div class="results-sidebar">
-                    <h4>Results After 90 Days</h4>
-                    <div class="result-stat">
-                        <h5>8,500</h5>
-                        <p>Total Subscribers</p>
-                    </div>
-                    <div class="result-stat">
-                        <h5>230%</h5>
-                        <p>Growth Rate</p>
-                    </div>
-                    <div class="result-stat">
-                        <h5>$25K</h5>
-                        <p>Revenue Generated</p>
-                    </div>
-                    <div class="result-stat">
-                        <h5>42%</h5>
-                        <p>Avg. Open Rate</p>
-                    </div>
-                </div>
+            <div class="header-stat">
+                <h3>450+</h3>
+                <p>Projects</p>
             </div>
-            <div class="case-study-image">
-                <img src="5e615a0f674680ec274fb0d8380097c0.jpg" alt="Email Campaign Results">
+            <div class="header-stat">
+                <h3>94%</h3>
+                <p>Success Rate</p>
             </div>
         </div>
+    </section>
 
-        <!-- Other Case Studies -->
-        <div class="case-studies-grid">
-            <div class="case-study-card">
-                <img src="coach.jpg" alt="Fitness Coach Funnel">
-                <div class="case-study-card-content">
-                    <span class="tag">Course Launch</span>
-                    <h3>Fitness Coaching Program Launch</h3>
-                    <p>Complete funnel redesign and strategic promotion for an online fitness coaching program.</p>
-                    <div class="case-results-inline">
-                        <div>
-                            <h5>3x</h5>
-                            <p>Enrollments</p>
+    <!-- Filter Tabs - NEW -->
+    <div class="filter-section">
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Results</button>
+            <button class="filter-btn" data-filter="email">Email Marketing</button>
+            <button class="filter-btn" data-filter="launch">Course Launches</button>
+            <button class="filter-btn" data-filter="community">Communities</button>
+            <button class="filter-btn" data-filter="funnel">Funnels</button>
+        </div>
+    </div>
+
+    <!-- Featured Case Study - NEW -->
+    <section class="featured-case">
+        <div class="featured-container">
+            <div class="featured-header">
+                <div class="featured-meta">
+                    <span class="meta-tag">Email Marketing</span>
+                    <span class="meta-item">📅 90 days</span>
+                    <span class="meta-item">✍️ Writing Coach</span>
+                    <span class="meta-item">💼 1:1 Consulting</span>
+                </div>
+                <h2>From 1,200 to 8,500 Engaged Subscribers</h2>
+                <p>A writing coach with valuable content but stagnant growth needed systematic email marketing to build audience and convert readers into clients.</p>
+            </div>
+            <div class="featured-content">
+                <div class="featured-story">
+                    <div class="story-section">
+                        <h3>🎯 The Challenge</h3>
+                        <p>Despite publishing weekly for two years, Sarah's newsletter growth had plateaued at 1,200 subscribers. Open rates declined to 15%, and she had no clear path from subscriber to paying client. Previous sporadic marketing efforts yielded inconsistent, unpredictable results.</p>
+                    </div>
+                    <div class="story-section">
+                        <h3>💡 The Strategy</h3>
+                        <p>Implemented a comprehensive email growth system focusing on quality over quantity:</p>
+                        <ul class="story-list">
+                            <li>Redesigned lead magnets to attract serious writers, not freebie seekers</li>
+                            <li>Created 7-email welcome sequence building trust and demonstrating expertise</li>
+                            <li>Segmented audience by interest (fiction vs. non-fiction, beginner vs. advanced)</li>
+                            <li>Implemented re-engagement campaign to revive dormant subscribers</li>
+                            <li>Built promotional sequences for coaching services that felt helpful, not salesy</li>
+                        </ul>
+                    </div>
+                    <div class="story-section">
+                        <h3>📊 The Outcome</h3>
+                        <p>Within 90 days, the email list grew to 8,500 engaged subscribers with 42% average open rates. More importantly, Sarah booked 12 new coaching clients directly from email sequences, generating $25,000 in new revenue—while spending less time on marketing, not more.</p>
+                    </div>
+                </div>
+                <div class="featured-results">
+                    <h3 class="results-title">Key Metrics</h3>
+                    <div class="result-item">
+                        <h4>8,500</h4>
+                        <p>Total Subscribers</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>230%</h4>
+                        <p>Growth Rate</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>$25K</h4>
+                        <p>Revenue Generated</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>42%</h4>
+                        <p>Avg. Open Rate</p>
+                    </div>
+                    <div class="result-item">
+                        <h4>12</h4>
+                        <p>New Clients</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-image">
+                <img src="5e615a0f674680ec274fb0d8380097c0.jpg" alt="Email campaign analytics dashboard showing growth">
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Grid -->
+    <section class="case-studies-section">
+        <div class="section-header">
+            <span class="section-badge">More Success Stories</span>
+            <h2>Results Across Industries</h2>
+            <p>Different creators, different challenges—systematic growth works across niches.</p>
+        </div>
+        <div class="case-grid">
+            <!-- Case 1 -->
+            <div class="case-card scroll-reveal" data-category="launch">
+                <img src="coach.jpg" alt="Fitness coaching program results" class="case-image">
+                <div class="case-content">
+                    <span class="case-tag">Course Launch</span>
+                    <h3>Fitness Coaching Program</h3>
+                    <p>Complete funnel redesign and strategic promotion for an established online fitness coach launching a group program.</p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <h4>3x</h4>
+                            <p>Enrollment Increase</p>
                         </div>
-                        <div>
-                            <h5>40%</h5>
-                            <p>Conversion</p>
+                        <div class="case-result">
+                            <h4>40%</h4>
+                            <p>Conversion Rate</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="case-study-card">
-                <img src="ddddd9567810a4d9cf414ebc096418cd.jpg" alt="Membership Growth">
-                <div class="case-study-card-content">
-                    <span class="tag">Community</span>
-                    <h3>TV Membership Platform Growth</h3>
-                    <p>Strategic visibility campaign and membership funnel optimization for streaming service.</p>
-                    <div class="case-results-inline">
-                        <div>
-                            <h5>180%</h5>
+            <!-- Case 2 -->
+            <div class="case-card scroll-reveal" data-category="community">
+                <img src="ddddd9567810a4d9cf414ebc096418cd.jpg" alt="TV membership platform growth" class="case-image">
+                <div class="case-content">
+                    <span class="case-tag">Community Growth</span>
+                    <h3>TV Membership Platform</h3>
+                    <p>Strategic visibility campaign and membership funnel optimization for niche streaming service.</p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <h4>180%</h4>
                             <p>Member Growth</p>
                         </div>
-                        <div>
-                            <h5>65%</h5>
-                            <p>Retention</p>
+                        <div class="case-result">
+                            <h4>65%</h4>
+                            <p>Retention Rate</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="case-study-card">
-                <img src="cd1ffc3918a18ce581be087c710fb063.jpg" alt="Online Course">
-                <div class="case-study-card-content">
-                    <span class="tag">Funnel Design</span>
-                    <h3>Chiropractic Course Funnel</h3>
-                    <p>High-converting funnel design for professional training program with automated sequences.</p>
-                    <div class="case-results-inline">
-                        <div>
-                            <h5>5.2%</h5>
+            <!-- Case 3 -->
+            <div class="case-card scroll-reveal" data-category="funnel">
+                <img src="cd1ffc3918a18ce581be087c710fb063.jpg" alt="Chiropractic course funnel" class="case-image">
+                <div class="case-content">
+                    <span class="case-tag">Funnel Design</span>
+                    <h3>Professional Training Funnel</h3>
+                    <p>High-converting funnel for chiropractic continuing education with automated nurture sequences.</p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <h4>5.2%</h4>
                             <p>Conv. Rate</p>
                         </div>
-                        <div>
-                            <h5>$18K</h5>
+                        <div class="case-result">
+                            <h4>$18K</h4>
                             <p>First Month</p>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Case 4 -->
+            <div class="case-card scroll-reveal" data-category="email">
+                <img src="jjjjkjlk.jpg" alt="Newsletter growth results" class="case-image">
+                <div class="case-content">
+                    <span class="case-tag">Email Growth</span>
+                    <h3>Author Platform Building</h3>
+                    <p>List building and engagement system for non-fiction author preparing for book launch.</p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <h4>340%</h4>
+                            <p>List Growth</p>
+                        </div>
+                        <div class="case-result">
+                            <h4>38%</h4>
+                            <p>Open Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 5 -->
+            <div class="case-card scroll-reveal" data-category="launch">
+                <img src="coach.jpg" alt="Workshop promotion results" class="case-image">
+                <div class="case-content">
+                    <span class="case-tag">Event Promotion</span>
+                    <h3>Creative Workshop Series</h3>
+                    <p>Multi-channel promotion strategy for in-person workshops, filling 200 seats in 72 hours.</p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <h4>200</h4>
+                            <p>Seats Filled</p>
+                        </div>
+                        <div class="case-result">
+                            <h4>72hrs</h4>
+                            <p>Sellout Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 6 -->
+            <div class="case-card scroll-reveal" data-category="community">
+                <img src="ddddd9567810a4d9cf414ebc096418cd.jpg" alt="Membership retention improvement" class="case-image">
+                <div class="case-content">
+                    <span class="case-tag">Retention</span>
+                    <h3>Coaching Community Revitalization</h3>
+                    <p>Re-engagement and retention system for stagnant membership community.</p>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <h4>45%</h4>
+                            <p>Churn Reduction</p>
+                        </div>
+                        <div class="case-result">
+                            <h4>$12K</h4>
+                            <p>MRR Achieved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section - NEW -->
+    <section class="timeline-section">
+        <div class="section-header">
+            <span class="section-badge">Typical Journey</span>
+            <h2>What 90 Days Looks Like</h2>
+            <p>A realistic timeline from kickoff to measurable results.</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date">Week 1-2</div>
+                    <h3>Deep Discovery</h3>
+                    <p>We immerse in your business—audience research, competitive analysis, and goal alignment. You receive a strategic blueprint with prioritized opportunities.</p>
+                </div>
+            </div>
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date">Week 3-4</div>
+                    <h3>Foundation Building</h3>
+                    <p>Quick wins implementation: lead magnet optimization, critical funnel fixes, and email sequence setup. Early improvements typically visible here.</p>
+                </div>
+            </div>
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date">Week 5-8</div>
+                    <h3>System Deployment</h3>
+                    <p>Full system rollout: automated sequences, content calendar execution, and partnership outreach. Momentum builds as components integrate.</p>
+                </div>
+            </div>
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date">Week 9-12</div>
+                    <h3>Optimization & Scale</h3>
+                    <p>Data-driven refinements based on early results. Scaling what works, adjusting what doesn't. Clear ROI typically established by day 90.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Spotlight - NEW -->
+    <section class="spotlight-section">
+        <div class="section-header">
+            <span class="section-badge">Client Perspectives</span>
+            <h2>In Their Words</h2>
+            <p>Specific feedback on the experience and outcomes.</p>
+        </div>
+        <div class="spotlight-grid">
+            <div class="spotlight-card scroll-reveal">
+                <div class="spotlight-quote">"</div>
+                <span class="spotlight-result">$47K Launch Revenue</span>
+                <p>What stood out was the systematic approach. No hacks, no desperation—just solid strategy that compounded over time. Our course launch hit 40% above projection, and the systems keep working months later.</p>
+                <div class="spotlight-author">
+                    <div class="spotlight-avatar">AW</div>
+                    <div class="spotlight-info">
+                        <h4>Amanda W.</h4>
+                        <p>Workshop Facilitator</p>
+                    </div>
+                </div>
+            </div>
+            <div class="spotlight-card featured scroll-reveal">
+                <div class="spotlight-quote">"</div>
+                <span class="spotlight-result">10x ROI on First Project</span>
+                <p>I've hired marketers who promised the world and delivered excuses. Michael delivered systems. The email sequences he built generated $18K while I was on vacation—no active selling required. Best investment in my business.</p>
+                <div class="spotlight-author">
+                    <div class="spotlight-avatar">SF</div>
+                    <div class="spotlight-info">
+                        <h4>Sophia F.</h4>
+                        <p>Business Coach</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section - NEW -->
+    <section class="methodology-section">
+        <div class="section-header">
+            <span class="section-badge">Why These Results Happen</span>
+            <h2>The System Behind Success</h2>
+            <p>Replicable principles that drive consistent outcomes.</p>
+        </div>
+        <div class="method-grid">
+            <div class="method-card scroll-reveal">
+                <div class="method-number">1</div>
+                <h3>Listen First</h3>
+                <p>No assumptions. Deep research into your audience, market, and unique advantages before any strategy.</p>
+            </div>
+            <div class="method-card scroll-reveal">
+                <div class="method-number">2</div>
+                <h3>Build Systems</h3>
+                <p>Not one-off campaigns. Automated, sustainable systems that compound results over time.</p>
+            </div>
+            <div class="method-card scroll-reveal">
+                <div class="method-number">3</div>
+                <h3>Measure Everything</h3>
+                <p>Data-driven decisions. Clear KPIs, regular reporting, and transparent optimization.</p>
+            </div>
+            <div class="method-card scroll-reveal">
+                <div class="method-number">4</div>
+                <h3>Iterate Constantly</h3>
+                <p>Markets shift. Systems evolve. Ongoing refinement based on real-world performance.</p>
             </div>
         </div>
     </section>
@@ -600,8 +1227,8 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Ready for Your Own Success Story?</h2>
-            <p>Every creator's journey is different, but systematic growth works across niches. Let's discuss how these strategies could work for your specific situation.</p>
+            <h2>Ready for Your Own Case Study?</h2>
+            <p>Every creator's situation is unique, but systematic growth works across niches. Let's discuss how these strategies could work for your specific goals.</p>
             <a href="contact.html" class="btn-primary">Start Your Project →</a>
         </div>
     </section>
@@ -642,7 +1269,65 @@
         </div>
     </footer>
 
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const caseCards = document.querySelectorAll('.case-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter cards
+                const filter = btn.getAttribute('data-filter');
+                
+                caseCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.classList.add('hidden');
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 15, 30, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 30, 0.95)';
+            }
+        });
+    </script>
 </body>
-
 </html>
-
