@@ -1,13 +1,11 @@
+<!-- SERVICES PAGE - services.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Tobest - Audience Growth & Visibility Systems</title>    
+    <title>Services | Tobest - Audience Growth & Visibility Systems</title>
     <meta name="description" content="Strategic marketing services for creators: audience growth, visibility campaigns, email systems, and conversion funnels.">
-
-    <link rel="icon" type="image/png" href="favicon.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -146,18 +144,57 @@
             margin: 0 auto;
         }
 
+        /* Results Bar - NEW */
+        .results-bar {
+            background: var(--secondary);
+            padding: 60px 5%;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .results-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .result-bar-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 8px;
+        }
+
+        .result-bar-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .results-bar-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
         /* Services Detail */
         .services-detail {
-            padding: 80px 5%;
+            padding: 100px 5%;
         }
 
         .service-block {
             max-width: 1200px;
-            margin: 0 auto 100px;
+            margin: 0 auto 120px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
+        }
+
+        .service-block:last-child {
+            margin-bottom: 0;
         }
 
         .service-block:nth-child(even) {
@@ -169,8 +206,8 @@
         }
 
         .service-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
             line-height: 1.2;
         }
 
@@ -180,8 +217,8 @@
 
         .service-content > p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 1.15rem;
+            margin-bottom: 35px;
             line-height: 1.8;
         }
 
@@ -191,7 +228,7 @@
         }
 
         .service-features li {
-            padding: 15px 0;
+            padding: 18px 0;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: flex-start;
@@ -203,17 +240,20 @@
             color: var(--accent-orange);
             font-weight: bold;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .service-features li strong {
             color: var(--text);
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
         }
 
         .service-features li span {
             color: var(--text-muted);
             font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .service-visual {
@@ -222,26 +262,40 @@
             padding: 40px;
             border: 1px solid var(--border);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
         }
 
         .service-visual img {
             width: 100%;
             border-radius: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
         .result-box {
             background: var(--primary);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px;
             text-align: center;
         }
 
         .result-box h4 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--accent-orange);
             margin-bottom: 10px;
+            line-height: 1;
         }
 
         .result-box p {
@@ -269,6 +323,319 @@
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Service Process - NEW SECTION */
+        .service-process {
+            background: var(--secondary);
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .process-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .process-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .process-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+        }
+
+        .process-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .process-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials for Services - NEW SECTION */
+        .service-testimonials {
+            background: var(--primary);
+            padding: 100px 5%;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card.featured {
+            background: linear-gradient(135deg, var(--secondary) 0%, rgba(233, 69, 96, 0.05) 100%);
+            border-color: var(--accent);
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card p {
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .testimonial-result-tag {
+            display: inline-block;
+            background: rgba(243, 148, 34, 0.1);
+            color: var(--accent-orange);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .author-info h4 {
+            color: var(--text);
+            margin-bottom: 3px;
+            font-size: 1.05rem;
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Comparison Section - NEW */
+        .comparison {
+            background: var(--secondary);
+            padding: 100px 5%;
+        }
+
+        .comparison-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .comparison-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .comparison-card.tobest {
+            border-color: var(--accent);
+            position: relative;
+        }
+
+        .comparison-card.tobest::before {
+            content: 'Recommended';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .comparison-card.tobest h3 {
+            color: var(--accent-orange);
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-list li.positive {
+            color: var(--text);
+        }
+
+        .comparison-list li.positive::before {
+            content: '✓';
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        .comparison-list li.negative::before {
+            content: '✕';
+            color: var(--accent);
+        }
+
+        /* FAQ Section - NEW */
+        .faq {
+            background: var(--primary);
+            padding: 100px 5%;
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--accent-orange);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 30px 25px;
+            color: var(--text-muted);
+            line-height: 1.7;
         }
 
         /* CTA Section */
@@ -360,10 +727,24 @@
         @media (max-width: 968px) {
             .service-block {
                 grid-template-columns: 1fr;
+                gap: 50px;
             }
 
             .service-block:nth-child(even) {
                 direction: ltr;
+            }
+
+            .process-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-bar-content {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .nav-links {
@@ -376,9 +757,30 @@
         }
 
         @media (max-width: 600px) {
+            .results-bar-content {
+                grid-template-columns: 1fr;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
             }
+
+            .service-visual,
+            .comparison-card {
+                padding: 30px;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -404,44 +806,66 @@
         <p>Not tactics. Not hacks. Systems that keep working long after implementation.</p>
     </section>
 
+    <!-- Results Bar - NEW -->
+    <div class="results-bar">
+        <div class="results-bar-content">
+            <div class="result-bar-item">
+                <h3>$2M+</h3>
+                <p>Client Revenue Generated</p>
+            </div>
+            <div class="result-bar-item">
+                <h3>450+</h3>
+                <p>Projects Delivered</p>
+            </div>
+            <div class="result-bar-item">
+                <h3>94%</h3>
+                <p>Client Retention</p>
+            </div>
+            <div class="result-bar-item">
+                <h3>9 Years</h3>
+                <p>Specialized Experience</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Services Detail -->
     <section class="services-detail">
 
-        <!-- Service 1 -->
-        <div class="service-block">
+        <!-- Service 1: Audience Growth -->
+        <div class="service-block scroll-reveal">
             <div class="service-content">
                 <h2>Audience Growth <span>Strategy</span></h2>
-                <p>Most creators post consistently but grow randomly. I build systematic approaches that attract your ideal audience predictably.</p>
+                <p>Most creators post consistently but grow randomly. I build systematic approaches that attract your ideal audience predictably—without relying on viral moments or platform algorithm lottery.</p>
                 <ul class="service-features">
                     <li>
                         <div>
-                            <strong>Audience Research & Targeting</strong>
-                            <span>Identify exactly who your best audience is and where to find them</span>
+                            <strong>Audience Research & Segmentation</strong>
+                            <span>Identify exactly who your best audience is, where they spend time, and what motivates them to engage</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Platform-Specific Growth Plans</strong>
-                            <span>Custom strategies for each platform you use</span>
+                            <span>Custom strategies for each platform—what works on LinkedIn differs from Instagram or YouTube</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Content Strategy Alignment</strong>
-                            <span>Ensure your content attracts and converts the right people</span>
+                            <span>Ensure every piece of content serves a strategic purpose in attracting and converting the right people</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Organic & Paid Growth Systems</strong>
-                            <span>Balanced approach using both organic reach and strategic paid promotion</span>
+                            <span>Balanced approach using organic reach for trust, strategic paid promotion for acceleration</span>
                         </div>
                     </li>
                 </ul>
                 <a href="contact.html" class="btn-primary">Discuss Your Growth →</a>
             </div>
             <div class="service-visual">
-                <img src="jjjjkjlk.jpg" alt="Audience Growth">
+                <img src="jjjjkjlk.jpg" alt="Audience Growth Dashboard">
                 <div class="result-box">
                     <h4>230%</h4>
                     <p>Average Audience Growth for Clients</p>
@@ -449,41 +873,41 @@
             </div>
         </div>
 
-        <!-- Service 2 -->
-        <div class="service-block">
+        <!-- Service 2: Visibility Campaigns -->
+        <div class="service-block scroll-reveal">
             <div class="service-content">
                 <h2>Visibility & <span>Promotion Campaigns</span></h2>
-                <p>Launching a course, book, or event? I create strategic campaigns that maximize exposure and drive enrollments.</p>
+                <p>Launching a course, book, or event? I create strategic campaigns that maximize exposure when it matters most—turning launches into momentum builders rather than one-time spikes.</p>
                 <ul class="service-features">
                     <li>
                         <div>
                             <strong>Launch Strategy & Execution</strong>
-                            <span>Complete roadmap from pre-launch to post-launch</span>
+                            <span>Complete roadmap from pre-launch buzz through post-launch momentum, with contingency planning</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Cross-Platform Promotion</strong>
-                            <span>Coordinated campaigns across all your channels</span>
+                            <span>Coordinated campaigns across all channels—email, social, partnerships, PR—working together</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Partnership & Collaboration Outreach</strong>
-                            <span>Connect with partners who can amplify your reach</span>
+                            <span>Connect with aligned partners who can authentically amplify your reach to qualified audiences</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>PR & Media Positioning</strong>
-                            <span>Position yourself as the go-to expert in your space</span>
+                            <span>Position yourself as the go-to expert through strategic media placements and thought leadership</span>
                         </div>
                     </li>
                 </ul>
                 <a href="contact.html" class="btn-primary">Plan Your Campaign →</a>
             </div>
             <div class="service-visual">
-                <img src="coach.jpg" alt="Promotion Campaigns">
+                <img src="coach.jpg" alt="Launch Campaign Results">
                 <div class="result-box">
                     <h4>3x</h4>
                     <p>Average Increase in Launch Revenue</p>
@@ -491,41 +915,41 @@
             </div>
         </div>
 
-        <!-- Service 3 -->
-        <div class="service-block">
+        <!-- Service 3: Email & Community -->
+        <div class="service-block scroll-reveal">
             <div class="service-content">
                 <h2>Email & Community <span>Growth</span></h2>
-                <p>Your email list is your most valuable asset. I build systems that turn visitors into subscribers and subscribers into loyal community members.</p>
+                <p>Your email list is your most valuable asset—owned, direct, and algorithm-resistant. I build systems that turn casual visitors into subscribers and subscribers into loyal community members who advocate for your work.</p>
                 <ul class="service-features">
                     <li>
                         <div>
                             <strong>Lead Magnet Strategy</strong>
-                            <span>Create compelling offers that attract quality subscribers</span>
+                            <span>Create compelling, specific offers that attract quality subscribers—not just quantity</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Email Funnel Optimization</strong>
-                            <span>Automated sequences that nurture and convert</span>
+                            <span>Automated sequences that nurture relationships and convert without constant manual effort</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Community Engagement Systems</strong>
-                            <span>Keep members active and engaged long-term</span>
+                            <span>Keep members active, engaged, and contributing—transforming lurkers into participants</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Retention & Loyalty Programs</strong>
-                            <span>Reduce churn and increase lifetime value</span>
+                            <span>Reduce churn and increase lifetime value through strategic onboarding and ongoing value</span>
                         </div>
                     </li>
                 </ul>
                 <a href="contact.html" class="btn-primary">Build Your List →</a>
             </div>
             <div class="service-visual">
-                <img src="5e615a0f674680ec274fb0d8380097c0.jpg" alt="Email Marketing">
+                <img src="5e615a0f674680ec274fb0d8380097c0.jpg" alt="Email Marketing Results">
                 <div class="result-box">
                     <h4>$25K</h4>
                     <p>Revenue from Single Email Sequence</p>
@@ -533,41 +957,41 @@
             </div>
         </div>
 
-        <!-- Service 4 -->
-        <div class="service-block">
+        <!-- Service 4: Funnels & Conversion -->
+        <div class="service-block scroll-reveal">
             <div class="service-content">
                 <h2>Funnels & <span>Conversion Pathways</span></h2>
-                <p>Traffic without conversion is wasted. I design strategic journeys that guide people from first contact to purchase.</p>
+                <p>Traffic without conversion is wasted effort. I design strategic journeys that guide people from first contact to purchase—removing friction, building trust, and making the decision to work with you obvious.</p>
                 <ul class="service-features">
                     <li>
                         <div>
                             <strong>Sales Funnel Architecture</strong>
-                            <span>Complete funnel design from awareness to purchase</span>
+                            <span>Complete funnel design from awareness through purchase, optimized for your specific offer and audience</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Landing Page Optimization</strong>
-                            <span>Pages that convert visitors into leads</span>
+                            <span>Pages that convert visitors into leads through persuasive copy, design, and user experience</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Conversion Rate Optimization</strong>
-                            <span>Systematic testing and improvement</span>
+                            <span>Systematic testing and improvement based on data, not guesswork</span>
                         </div>
                     </li>
                     <li>
                         <div>
                             <strong>Automated Nurture Sequences</strong>
-                            <span>Keep prospects engaged until they're ready to buy</span>
+                            <span>Keep prospects engaged until they're ready to buy—no leads falling through cracks</span>
                         </div>
                     </li>
                 </ul>
                 <a href="contact.html" class="btn-primary">Optimize Your Funnel →</a>
             </div>
             <div class="service-visual">
-                <img src="cd1ffc3918a18ce581be087c710fb063.jpg" alt="Sales Funnel">
+                <img src="cd1ffc3918a18ce581be087c710fb063.jpg" alt="Sales Funnel Analytics">
                 <div class="result-box">
                     <h4>40%</h4>
                     <p>Average Conversion Rate Increase</p>
@@ -577,11 +1001,175 @@
 
     </section>
 
+    <!-- Service Process - NEW SECTION -->
+    <section class="service-process">
+        <div class="section-header">
+            <span class="section-badge">How We Work Together</span>
+            <h2>A Partnership, Not a Transaction</h2>
+            <p>Every engagement follows a proven framework—tailored to your specific situation.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-card scroll-reveal">
+                <div class="process-icon">🔍</div>
+                <h3>Discovery First</h3>
+                <p>Before proposing solutions, I immerse myself in your business—understanding your audience, goals, constraints, and competitive landscape.</p>
+            </div>
+            <div class="process-card scroll-reveal">
+                <div class="process-icon">📋</div>
+                <h3>Strategic Blueprint</h3>
+                <p>You receive a clear, prioritized roadmap—not vague recommendations, but specific actions with expected outcomes and timelines.</p>
+            </div>
+            <div class="process-card scroll-reveal">
+                <div class="process-icon">🤝</div>
+                <h3>Collaborative Execution</h3>
+                <p>Implementation happens together. Regular check-ins, transparent communication, and adjustments based on real-time feedback.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Testimonials - NEW SECTION -->
+    <section class="service-testimonials">
+        <div class="section-header">
+            <span class="section-badge">Service-Specific Results</span>
+            <h2>What Clients Say About Working Together</h2>
+            <p>Specific feedback on the experience and outcomes.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card scroll-reveal">
+                <div class="quote-icon">"</div>
+                <span class="testimonial-result-tag">Audience Growth Strategy</span>
+                <p>We went from guessing what content to create to having a clear system. Every post now has a purpose. Our community grew 3x in 6 months without paid ads.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MK</div>
+                    <div class="author-info">
+                        <h4>Marcus K.</h4>
+                        <p>Community Founder</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card featured scroll-reveal">
+                <div class="quote-icon">"</div>
+                <span class="testimonial-result-tag">Email & Funnel Systems</span>
+                <p>The automated sequences Michael built still generate revenue months later. Best part? They sound like me, not robotic marketing speak. $18K from one sequence.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SF</div>
+                    <div class="author-info">
+                        <h4>Sophia F.</h4>
+                        <p>Business Coach</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card scroll-reveal">
+                <div class="quote-icon">"</div>
+                <span class="testimonial-result-tag">Launch Campaign</span>
+                <p>Our course launch was 40% above projection. The cross-platform coordination meant our audience saw consistent messaging everywhere—no confusion, just clarity.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AW</div>
+                    <div class="author-info">
+                        <h4>Amanda W.</h4>
+                        <p>Course Creator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section - NEW -->
+    <section class="comparison">
+        <div class="section-header">
+            <span class="section-badge">Why Tobest</span>
+            <h2>Systems vs. Tactics</h2>
+            <p>The difference that creates sustainable results.</p>
+        </div>
+        <div class="comparison-content">
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Typical Marketing</h3>
+                    <ul class="comparison-list">
+                        <li class="negative">One-off campaigns with no follow-through</li>
+                        <li class="negative">Generic tactics copied from others</li>
+                        <li class="negative">Vanity metrics (likes, follows) prioritized</li>
+                        <li class="negative">Constant need for new "hacks"</li>
+                        <li class="negative">Results stop when spending stops</li>
+                        <li class="negative">Transactional relationship</li>
+                    </ul>
+                </div>
+                <div class="comparison-card tobest">
+                    <h3>Tobest Approach</h3>
+                    <ul class="comparison-list">
+                        <li class="positive">Systems that compound over time</li>
+                        <li class="positive">Strategies tailored to your audience</li>
+                        <li class="positive">Business metrics (revenue, retention) focused</li>
+                        <li class="positive">Sustainable growth without gimmicks</li>
+                        <li class="positive">Assets that keep performing</li>
+                        <li class="positive">Partnership for long-term success</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section - NEW -->
+    <section class="faq">
+        <div class="section-header">
+            <span class="section-badge">Common Questions</span>
+            <h2>What Creators Ask</h2>
+            <p>Clear answers to help you decide.</p>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long before I see results?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Most clients see measurable improvements within 30-60 days, depending on the service. Quick wins from audits and optimizations often appear faster. Sustainable systems build momentum over 3-6 months. I set realistic expectations upfront—no false promises.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you work with beginners or established creators?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>I work best with creators who have existing content and some audience—typically 1,000+ followers or email subscribers. If you're just starting, the $250 Visibility Review is perfect for establishing direction. For full implementation, having foundations in place ensures we can build systems that scale.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What's the investment range?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The Visibility Review is $250. Project-based work typically ranges from $2,500-$8,000 depending on scope and complexity. Retainer arrangements available for ongoing optimization. Every proposal includes clear deliverables and expected outcomes—no hidden costs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How involved do I need to be?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Collaboration is key, especially during discovery. Expect 2-3 strategy calls and feedback cycles. Once systems are built, many run autonomously. I design for your capacity—if you prefer hands-off after setup, we build accordingly. If you want to learn the systems, I document everything.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you guarantee results?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>I guarantee the quality of work and strategic soundness. Markets vary, audience behavior shifts, and implementation depends on execution. What I can promise: systems built on proven principles, transparent communication, and adjustments if metrics don't meet agreed benchmarks. The Visibility Review has a 100% satisfaction guarantee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2>Not Sure What You Need?</h2>
-            <p>Start with a Visibility Review. I'll analyze your current situation and recommend the exact strategy that will move the needle for your business.</p>
+            <h2>Not Sure Which Service Fits?</h2>
+            <p>Start with a Visibility Review. I'll analyze your current situation and recommend the exact strategy that will move the needle for your specific business.</p>
             <a href="contact.html" class="btn-primary">Request a $250 Visibility Review →</a>
         </div>
     </section>
@@ -623,7 +1211,55 @@
         </div>
     </footer>
 
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                const isActive = item.classList.contains('active');
+                
+                // Close all others
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 15, 30, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 30, 0.95)';
+            }
+        });
+    </script>
 </body>
 </html>
-
-
