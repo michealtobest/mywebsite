@@ -1434,7 +1434,36 @@
             opacity: 1;
             transform: translateY(0);
         }
-    </style>
+    
+        /* Testimonial Photo Styles */
+        .author-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-orange);
+            flex-shrink: 0;
+        }
+
+        .review-author .author-photo {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Impact Visual Image Styles */
+        .impact-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .impact-visual:hover img {
+            transform: scale(1.02);
+        }
+</style>
+<base target="_blank">
 </head>
 <body>
 
@@ -1581,7 +1610,7 @@
         <div class="section-header">
             <span class="section-badge">The Real Problems</span>
             <h2>Sound Familiar?</h2>
-            <p>Most creators I work with face these exact challenges. The good news? They're all solvable.</p>
+            <p>Most creators We work with face these exact challenges. The good news? They're all solvable.</p>
         </div>
         <div class="problems-grid">
             <div class="problems-list">
@@ -1755,7 +1784,7 @@
                         <div class="quote-icon">"</div>
                         <p>Tobest transformed our entire approach to audience building. Within 90 days, we saw a 340% increase in qualified traffic and our email list grew from 800 to 3,500 engaged subscribers.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">SK</div>
+                            <img src="testimonial-sarah-k.jpg" alt="Sarah K. - Writing Coach" class="author-photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange);">
                             <div class="author-info">
                                 <h4>Sarah K.</h4>
                                 <p>Writing Coach & Author</p>
@@ -1769,7 +1798,7 @@
                         <div class="quote-icon">"</div>
                         <p>I've worked with several marketing consultants, but Michael actually listens first. He didn't push cookie-cutter solutions—he built a system that fit our specific community needs. Our membership doubled in 4 months.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">DR</div>
+                            <img src="testimonial-daniel-r.jpg" alt="Daniel R. - SaaS Founder" class="author-photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange);">
                             <div class="author-info">
                                 <h4>Daniel R.</h4>
                                 <p>SaaS Founder</p>
@@ -1783,7 +1812,7 @@
                         <div class="quote-icon">"</div>
                         <p>The funnel strategy alone paid for itself in the first month. We went from sporadic sales to a predictable $12K monthly recurring revenue stream. Finally, stability.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">JA</div>
+                            <img src="testimonial-jessica-a.jpg" alt="Jessica A. - Online Brand Owner" class="author-photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange);">
                             <div class="author-info">
                                 <h4>Jessica A.</h4>
                                 <p>Online Brand Owner</p>
@@ -1825,7 +1854,7 @@
                         <div class="quote-icon">"</div>
                         <p>The team communicated clearly, delivered on time, and solved problems quickly. No marketing fluff—just practical systems that work. Our webinar attendance jumped 280%.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">AJ</div>
+                            <img src="testimonial-austin-j.jpg" alt="Austin J. - E-commerce Store Owner" class="author-photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange);">
                             <div class="author-info">
                                 <h4>Austin J.</h4>
                                 <p>E-commerce Store Owner</p>
@@ -1839,7 +1868,7 @@
                         <div class="quote-icon">"</div>
                         <p>Before working with Tobest, we had 200 email subscribers and no strategy. Six months later, we have 8,500 engaged readers and a launch that generated $47K in one week.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">RK</div>
+                            <img src="testimonial-rachel-k.jpg" alt="Rachel K. - Business Coach" class="author-photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange);">
                             <div class="author-info">
                                 <h4>Rachel K.</h4>
                                 <p>Business Coach</p>
@@ -1881,7 +1910,7 @@
                         <div class="quote-icon">"</div>
                         <p>The Visibility Review alone was worth 10x what I paid. Clear, actionable, and specific to my situation—not generic advice. Implemented the recommendations and saw results in 3 weeks.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">TB</div>
+                            <img src="testimonial-thomas-b.jpg" alt="Thomas B. - Consultant" class="author-photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange);">
                             <div class="author-info">
                                 <h4>Thomas B.</h4>
                                 <p>Consultant</p>
@@ -1951,7 +1980,7 @@
                         <div class="quote-icon">"</div>
                         <p>Nine years of experience shows. Every recommendation was backed by data and tested methodology. No guesswork—just results. Our launch exceeded projections by 40%.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar">AW</div>
+                            <img src="testimonial-amanda-w.jpg" alt="Amanda W. - Workshop Facilitator" class="author-photo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange);">
                             <div class="author-info">
                                 <h4>Amanda W.</h4>
                                 <p>Workshop Facilitator</p>
@@ -2027,7 +2056,7 @@
                     </div>
                 </div>
                 <div class="review-author">
-                    <div class="author-avatar">MK</div>
+                    <img src="testimonial-michael-k.jpg" alt="Michael K. - Course Creator" class="author-photo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orange);">
                     <div class="author-info">
                         <h4>Michael K.</h4>
                         <p>Course Creator</p>
@@ -2163,11 +2192,7 @@
             <!-- Impact Card 1 -->
             <div class="impact-card scroll-reveal">
                 <div class="impact-visual">
-                    <div class="impact-placeholder">
-                        <div class="impact-placeholder-icon">📊</div>
-                        <p>Revenue Growth Dashboard<br><span style="font-size: 0.8rem; opacity: 0.7;">Client: Course Launch</span></p>
-                    </div>
-                    <!-- Replace with: <img src="income-dashboard-1.jpg" alt="Revenue dashboard showing $47K launch"> -->
+                    <img src="dashboard-revenue-1.jpg" alt="Revenue dashboard showing $47K launch results" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
                 <div class="impact-content">
                     <h4>From Sporadic to Predictable</h4>
@@ -2179,11 +2204,7 @@
             <!-- Impact Card 2 -->
             <div class="impact-card scroll-reveal">
                 <div class="impact-visual">
-                    <div class="impact-placeholder">
-                        <div class="impact-placeholder-icon">📈</div>
-                        <p>Subscriber Growth Curve<br><span style="font-size: 0.8rem; opacity: 0.7;">Client: Newsletter</span></p>
-                    </div>
-                    <!-- Replace with: <img src="growth-curve-2.jpg" alt="Analytics showing 230% growth"> -->
+                    <img src="dashboard-subscribers-2.jpg" alt="Analytics showing 230% subscriber growth" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
                 <div class="impact-content">
                     <h4>Compounding Audience Growth</h4>
@@ -2195,11 +2216,7 @@
             <!-- Impact Card 3 -->
             <div class="impact-card scroll-reveal">
                 <div class="impact-visual">
-                    <div class="impact-placeholder">
-                        <div class="impact-placeholder-icon">🔄</div>
-                        <p>Monthly Recurring Revenue<br><span style="font-size: 0.8rem; opacity: 0.7;">Client: Membership</span></p>
-                    </div>
-                    <!-- Replace with: <img src="mrr-dashboard-3.jpg" alt="MRR chart showing $12K monthly"> -->
+                    <img src="dashboard-mrr-3.jpg" alt="MRR chart showing $12K monthly recurring revenue" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
                 <div class="impact-content">
                     <h4>Stability Through Systems</h4>
@@ -2211,11 +2228,7 @@
             <!-- Impact Card 4 -->
             <div class="impact-card scroll-reveal">
                 <div class="impact-visual">
-                    <div class="impact-placeholder">
-                        <div class="impact-placeholder-icon">🎯</div>
-                        <p>Conversion Funnel Analytics<br><span style="font-size: 0.8rem; opacity: 0.7;">Client: Coaching Program</span></p>
-                    </div>
-                    <!-- Replace with: <img src="funnel-analytics-4.jpg" alt="Funnel showing 40% conversion"> -->
+                    <img src="dashboard-conversion-4.jpg" alt="Funnel analytics showing 40% conversion rate" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
                 <div class="impact-content">
                     <h4>Traffic That Actually Converts</h4>
@@ -2227,11 +2240,7 @@
             <!-- Impact Card 5 -->
             <div class="impact-card scroll-reveal">
                 <div class="impact-visual">
-                    <div class="impact-placeholder">
-                        <div class="impact-placeholder-icon">👥</div>
-                        <p>Community Engagement Metrics<br><span style="font-size: 0.8rem; opacity: 0.7;">Client: Membership Site</span></p>
-                    </div>
-                    <!-- Replace with: <img src="engagement-metrics-5.jpg" alt="Dashboard showing 65% retention"> -->
+                    <img src="dashboard-engagement-5.jpg" alt="Dashboard showing 65% retention rate" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
                 <div class="impact-content">
                     <h4>Members Who Stay and Engage</h4>
@@ -2243,11 +2252,7 @@
             <!-- Impact Card 6 -->
             <div class="impact-card scroll-reveal">
                 <div class="impact-visual">
-                    <div class="impact-placeholder">
-                        <div class="impact-placeholder-icon">🚀</div>
-                        <p>Launch Performance Overview<br><span style="font-size: 0.8rem; opacity: 0.7;">Client: Group Program</span></p>
-                    </div>
-                    <!-- Replace with: <img src="launch-results-6.jpg" alt="Launch results showing $18K"> -->
+                    <img src="dashboard-launch-6.jpg" alt="Launch results showing $18K automated revenue" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
                 <div class="impact-content">
                     <h4>Automated Revenue While Away</h4>
