@@ -18,20 +18,74 @@
             --text-muted: rgba(255,255,255,0.5);
             --text-dim: rgba(255,255,255,0.3);
             --accent: #8b5cf6;
+            --accent-light: #a78bfa;
+            --accent-dark: #7c3aed;
             --accent2: #f97316;
             --accent-gradient: linear-gradient(135deg, #f97316, #8b5cf6);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            cursor: default;
+        }
+        ::selection { background: var(--accent); color: white; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        /* ===== CURSOR FOLLOWER ===== */
+        .cursor-follower {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .cursor-follower.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .cursor-follower svg {
+            width: 20px;
+            height: 20px;
         }
 
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -42,21 +96,18 @@
             align-items: center;
             transition: all 0.4s ease;
         }
-
         nav.scrolled {
             background: rgba(10,10,15,0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             padding: 16px 40px;
         }
-
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
         }
-
         .logo-icon {
             width: 32px; height: 32px;
             border-radius: 8px;
@@ -65,27 +116,22 @@
             font-family: 'Manrope', sans-serif;
             font-weight: 800; font-size: 16px; color: white;
         }
-
         .logo-text {
             font-family: 'Manrope', sans-serif;
             font-weight: 700; font-size: 20px;
             color: var(--text);
             letter-spacing: -0.5px;
         }
-
         .nav-links {
             display: flex; gap: 32px; align-items: center;
         }
-
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
             font-size: 14px; font-weight: 500;
             transition: color 0.3s;
         }
-
         .nav-links a:hover, .nav-links a.active { color: var(--text); }
-
         .nav-cta {
             background: var(--accent-gradient);
             color: white; padding: 10px 24px;
@@ -93,9 +139,7 @@
             font-weight: 600; text-decoration: none;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
         .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.3); }
-
         .mobile-menu-btn {
             display: none; background: none; border: none;
             color: var(--text); font-size: 24px; cursor: pointer;
@@ -111,7 +155,6 @@
             padding: 140px 40px 60px;
             overflow: hidden;
         }
-
         .hero-watermark {
             position: absolute;
             top: 50%; left: 50%;
@@ -127,13 +170,11 @@
             z-index: 0;
             letter-spacing: -4px;
         }
-
         .hero-content {
             position: relative; z-index: 1;
             text-align: center;
             max-width: 700px;
         }
-
         .hero-tagline {
             font-family: 'Manrope', sans-serif;
             font-size: clamp(28px, 5vw, 52px);
@@ -142,14 +183,12 @@
             margin-bottom: 16px;
             letter-spacing: -1px;
         }
-
         .hero-tagline span {
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .hero-desc {
             font-size: 16px; color: var(--text-muted);
             line-height: 1.6; max-width: 500px;
@@ -162,12 +201,10 @@
             justify-content: center;
             padding: 0 40px 40px;
         }
-
         .filter-wrapper {
             position: relative;
             display: inline-block;
         }
-
         .filter-trigger {
             display: flex;
             align-items: center;
@@ -183,22 +220,18 @@
             transition: all 0.3s;
             backdrop-filter: blur(10px);
         }
-
         .filter-trigger:hover {
             background: var(--bg-card-hover);
             border-color: var(--border-hover);
         }
-
         .filter-trigger svg {
             width: 16px; height: 16px;
             transition: transform 0.3s;
             color: var(--text-muted);
         }
-
         .filter-wrapper.open .filter-trigger svg {
             transform: rotate(180deg);
         }
-
         .filter-dropdown {
             position: absolute;
             top: calc(100% + 12px);
@@ -216,13 +249,11 @@
             backdrop-filter: blur(20px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
-
         .filter-wrapper.open .filter-dropdown {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) scale(1);
         }
-
         .filter-option {
             display: block;
             width: 100%;
@@ -236,12 +267,10 @@
             text-align: left;
             font-family: 'Inter', sans-serif;
         }
-
         .filter-option:hover {
             background: rgba(139,92,246,0.1);
             color: var(--text);
         }
-
         .filter-option.active {
             background: rgba(139,92,246,0.15);
             color: var(--accent);
@@ -252,13 +281,11 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
         .work-grid {
             display: flex;
             flex-direction: column;
             gap: 24px;
         }
-
         .work-card {
             position: relative;
             border-radius: 20px;
@@ -268,35 +295,29 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
         }
-
         .work-card:hover {
             transform: translateY(-4px) scale(1.01);
             box-shadow: 0 30px 60px rgba(0,0,0,0.4);
             border-color: var(--border-hover);
         }
-
         .work-card.hidden {
             display: none;
         }
-
         .work-card-image {
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
         }
-
         .work-card-image img {
             width: 100%; height: 100%;
             object-fit: cover;
             transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
             display: block;
         }
-
         .work-card:hover .work-card-image img {
             transform: scale(1.05);
         }
-
         .work-card-image::after {
             content: '';
             position: absolute;
@@ -304,14 +325,12 @@
             background: linear-gradient(to top, rgba(10,10,15,0.9) 0%, rgba(10,10,15,0.3) 40%, transparent 70%);
             pointer-events: none;
         }
-
         .work-card-content {
             position: absolute;
             bottom: 0; left: 0; right: 0;
             padding: 32px;
             z-index: 2;
         }
-
         .work-card-tag {
             display: inline-block;
             padding: 6px 14px;
@@ -324,7 +343,6 @@
             letter-spacing: 0.5px;
             margin-bottom: 12px;
         }
-
         .work-card-title {
             font-family: 'Manrope', sans-serif;
             font-size: 24px; font-weight: 700;
@@ -332,13 +350,11 @@
             margin-bottom: 6px;
             letter-spacing: -0.5px;
         }
-
         .work-card-desc {
             font-size: 14px; color: var(--text-muted);
             line-height: 1.5;
             margin-bottom: 16px;
         }
-
         .work-card-btn {
             display: inline-flex;
             align-items: center;
@@ -355,17 +371,14 @@
             transition: all 0.3s;
             text-decoration: none;
         }
-
         .work-card-btn:hover {
             transform: translateX(4px);
             box-shadow: 0 8px 25px rgba(139,92,246,0.3);
         }
-
         .work-card-btn svg {
             width: 14px; height: 14px;
             transition: transform 0.3s;
         }
-
         .work-card-btn:hover svg {
             transform: translateX(3px);
         }
@@ -381,12 +394,10 @@
             transition: all 0.4s ease;
             overflow-y: auto;
         }
-
         .modal-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-
         .modal-content {
             max-width: 900px;
             margin: 0 auto;
@@ -394,11 +405,9 @@
             transform: translateY(40px);
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         .modal-overlay.active .modal-content {
             transform: translateY(0);
         }
-
         .modal-close {
             position: fixed;
             top: 24px; right: 24px;
@@ -413,12 +422,10 @@
             transition: all 0.3s;
             z-index: 1001;
         }
-
         .modal-close:hover {
             background: rgba(255,255,255,0.1);
             transform: rotate(90deg);
         }
-
         .modal-hero-img {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -427,17 +434,14 @@
             margin-bottom: 48px;
             border: 1px solid var(--border);
         }
-
         .modal-hero-img img {
             width: 100%; height: 100%;
             object-fit: cover;
             display: block;
         }
-
         .modal-header {
             margin-bottom: 48px;
         }
-
         .modal-category {
             display: inline-block;
             padding: 6px 16px;
@@ -450,7 +454,6 @@
             letter-spacing: 0.5px;
             margin-bottom: 16px;
         }
-
         .modal-title {
             font-family: 'Manrope', sans-serif;
             font-size: clamp(32px, 5vw, 48px);
@@ -459,19 +462,16 @@
             margin-bottom: 12px;
             letter-spacing: -1px;
         }
-
         .modal-subtitle {
             font-size: 18px; color: var(--text-muted);
             line-height: 1.5;
         }
-
         .modal-metrics {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin-bottom: 56px;
         }
-
         .metric-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -480,12 +480,10 @@
             text-align: center;
             transition: all 0.3s;
         }
-
         .metric-box:hover {
             border-color: var(--border-hover);
             transform: translateY(-2px);
         }
-
         .metric-value {
             font-family: 'Manrope', sans-serif;
             font-size: 32px; font-weight: 700;
@@ -495,16 +493,13 @@
             background-clip: text;
             margin-bottom: 4px;
         }
-
         .metric-label {
             font-size: 13px; color: var(--text-muted);
             font-weight: 500;
         }
-
         .modal-section {
             margin-bottom: 56px;
         }
-
         .modal-section-title {
             font-family: 'Manrope', sans-serif;
             font-size: 14px; font-weight: 700;
@@ -513,41 +508,33 @@
             color: var(--text-dim);
             margin-bottom: 20px;
         }
-
         .modal-text {
             font-size: 16px; color: var(--text-muted);
             line-height: 1.7;
         }
-
         .modal-text p { margin-bottom: 16px; }
         .modal-text p:last-child { margin-bottom: 0; }
-
         .showcase-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
         }
-
         .showcase-img {
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--border);
             aspect-ratio: 16 / 10;
         }
-
         .showcase-img img {
             width: 100%; height: 100%;
             object-fit: cover;
             display: block;
             transition: transform 0.5s;
         }
-
         .showcase-img:hover img { transform: scale(1.03); }
-
         .tools-list {
             display: flex; flex-wrap: wrap; gap: 10px;
         }
-
         .tool-tag {
             padding: 8px 18px;
             background: var(--bg-card);
@@ -557,12 +544,10 @@
             color: var(--text-muted);
             transition: all 0.3s;
         }
-
         .tool-tag:hover {
             border-color: var(--accent);
             color: var(--accent);
         }
-
         .timeline-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -572,7 +557,6 @@
             align-items: center;
             gap: 16px;
         }
-
         .timeline-icon {
             width: 44px; height: 44px;
             border-radius: 12px;
@@ -581,17 +565,14 @@
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
         }
-
         .timeline-icon svg {
             width: 20px; height: 20px;
             color: var(--accent);
         }
-
         .timeline-text {
             font-size: 15px; color: var(--text);
             font-weight: 500;
         }
-
         .testimonial-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -599,7 +580,6 @@
             padding: 40px;
             position: relative;
         }
-
         .testimonial-box::before {
             content: '"';
             position: absolute;
@@ -610,7 +590,6 @@
             line-height: 1;
             pointer-events: none;
         }
-
         .testimonial-quote {
             font-size: 18px; color: var(--text);
             line-height: 1.7;
@@ -618,35 +597,29 @@
             margin-bottom: 28px;
             position: relative; z-index: 1;
         }
-
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 14px;
         }
-
         .testimonial-avatar {
             width: 48px; height: 48px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--border);
         }
-
         .testimonial-name {
             font-size: 15px; font-weight: 600;
             color: var(--text);
         }
-
         .testimonial-role {
             font-size: 13px; color: var(--text-muted);
         }
-
         .related-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
         }
-
         .related-card {
             border-radius: 16px;
             overflow: hidden;
@@ -655,92 +628,157 @@
             transition: all 0.4s;
             background: var(--bg-card);
         }
-
         .related-card:hover {
             transform: translateY(-4px);
             border-color: var(--border-hover);
             box-shadow: 0 16px 40px rgba(0,0,0,0.3);
         }
-
         .related-card-img {
             aspect-ratio: 16 / 10;
             overflow: hidden;
         }
-
         .related-card-img img {
             width: 100%; height: 100%;
             object-fit: cover;
             display: block;
             transition: transform 0.5s;
         }
-
         .related-card:hover .related-card-img img { transform: scale(1.05); }
-
         .related-card-info {
             padding: 16px 20px;
         }
-
         .related-card-title {
             font-family: 'Manrope', sans-serif;
             font-size: 14px; font-weight: 600;
             color: var(--text);
             margin-bottom: 4px;
         }
-
         .related-card-cat {
             font-size: 12px; color: var(--text-dim);
         }
 
+        /* ===== RICH FOOTER ===== */
+        .footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 80px 0 40px;
+        }
         .footer-cta {
-            padding: 120px 40px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-cta-text {
             font-family: 'Manrope', sans-serif;
-            font-size: clamp(40px, 8vw, 100px);
+            font-size: clamp(3rem, 10vw, 8rem);
             font-weight: 800;
-            color: transparent;
-            -webkit-text-stroke: 1.5px rgba(255,255,255,0.15);
-            letter-spacing: -2px;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            margin-bottom: 80px;
             cursor: pointer;
-            transition: all 0.4s;
-            display: inline-block;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+        .footer-cta:hover { opacity: 0.7; }
+        .footer-cta a {
+            color: var(--text);
             text-decoration: none;
+            background: linear-gradient(135deg, var(--text), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .footer-cta-text:hover {
-            -webkit-text-stroke: 1.5px var(--accent);
-            color: var(--accent);
-            -webkit-text-fill-color: var(--accent);
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            max-width: 1280px;
+            margin: 0 auto 60px;
+            padding: 0 24px;
         }
-
+        .footer-brand { max-width: 320px; }
+        .footer-logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem; font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-desc {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-social-link {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+        .footer-social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .footer-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.875rem; font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-link {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover { color: var(--accent-light); }
         .footer-bottom {
-            padding: 40px;
             border-top: 1px solid var(--border);
+            padding-top: 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
+            padding: 24px 24px 0;
         }
-
-        .footer-copy {
-            font-size: 13px; color: var(--text-dim);
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--text-dim);
         }
-
-        .footer-links {
-            display: flex; gap: 24px;
+        .footer-legal {
+            display: flex;
+            gap: 24px;
         }
-
-        .footer-links a {
-            font-size: 13px; color: var(--text-dim);
+        .footer-legal-link {
+            font-size: 0.875rem;
+            color: var(--text-dim);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
-
-        .footer-links a:hover { color: var(--text); }
+        .footer-legal-link:hover { color: var(--text-muted); }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -751,14 +789,27 @@
             .modal-metrics { grid-template-columns: 1fr; }
             .showcase-grid { grid-template-columns: 1fr; }
             .related-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
             .work-card-content { padding: 24px; }
             .work-card-title { font-size: 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
     </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
+
+<!-- Cursor Follower -->
+<div class="cursor-follower" id="cursorFollower">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+</div>
 
 <nav id="navbar">
     <a href="index.html" class="logo">
@@ -771,7 +822,7 @@
         <a href="team.html">Team</a>
         <a href="index.html#contact" class="nav-cta">Let's Connect</a>
     </div>
-    <button class="mobile-menu-btn">☰</button>
+    <button class="mobile-menu-btn">&#9776;</button>
 </nav>
 
 <section class="hero">
@@ -803,7 +854,7 @@
 
 <section class="work-section">
     <div class="work-grid" id="workGrid">
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal has-cursor" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80" alt="45K Followers in 60 Days" loading="lazy">
             </div>
@@ -819,7 +870,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal reveal-delay-1 has-cursor" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?w=1200&q=80" alt="TikTok Book Launch Campaign" loading="lazy">
             </div>
@@ -835,7 +886,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal reveal-delay-2 has-cursor" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1611162618335-8b1569810432?w=1200&q=80" alt="Twitter Author Community Build" loading="lazy">
             </div>
@@ -851,7 +902,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal has-cursor" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&q=80" alt="YouTube Author Channel Growth" loading="lazy">
             </div>
@@ -867,7 +918,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal reveal-delay-1 has-cursor" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80" alt="Pinterest Book Marketing" loading="lazy">
             </div>
@@ -883,7 +934,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal reveal-delay-2 has-cursor" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80" alt="Bestseller Author Website" loading="lazy">
             </div>
@@ -899,7 +950,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal has-cursor" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" alt="High-Converting Book Funnel" loading="lazy">
             </div>
@@ -915,7 +966,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal reveal-delay-1 has-cursor" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&q=80" alt="Book Launch Landing Page" loading="lazy">
             </div>
@@ -931,7 +982,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal reveal-delay-2 has-cursor" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80" alt="Automated Email Sequence" loading="lazy">
             </div>
@@ -947,7 +998,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal has-cursor" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Author Membership Platform" loading="lazy">
             </div>
@@ -963,7 +1014,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="ads">
+        <div class="work-card reveal reveal-delay-1 has-cursor" data-category="ads">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=1200&q=80" alt="Meta Ads Book Launch" loading="lazy">
             </div>
@@ -979,7 +1030,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="ads">
+        <div class="work-card reveal reveal-delay-2 has-cursor" data-category="ads">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=1200&q=80" alt="Amazon KDP Advertising" loading="lazy">
             </div>
@@ -995,7 +1046,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="ads">
+        <div class="work-card reveal has-cursor" data-category="ads">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=1200&q=80" alt="Google Ads for Authors" loading="lazy">
             </div>
@@ -1011,7 +1062,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="ads">
+        <div class="work-card reveal reveal-delay-1 has-cursor" data-category="ads">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" alt="Retargeting Funnel" loading="lazy">
             </div>
@@ -1027,7 +1078,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="seo">
+        <div class="work-card reveal reveal-delay-2 has-cursor" data-category="seo">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=1200&q=80" alt="#1 Google Ranking" loading="lazy">
             </div>
@@ -1043,7 +1094,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="seo">
+        <div class="work-card reveal has-cursor" data-category="seo">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80" alt="Media Coverage Campaign" loading="lazy">
             </div>
@@ -1059,7 +1110,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="seo">
+        <div class="work-card reveal reveal-delay-1 has-cursor" data-category="seo">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" alt="Content SEO Strategy" loading="lazy">
             </div>
@@ -1075,7 +1126,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal reveal-delay-2 has-cursor" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200&q=80" alt="Bestseller Cover Design" loading="lazy">
             </div>
@@ -1091,7 +1142,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal has-cursor" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1200&q=80" alt="Professional Interior Layout" loading="lazy">
             </div>
@@ -1107,7 +1158,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal reveal-delay-1 has-cursor" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80" alt="Ebook & Print Bundle" loading="lazy">
             </div>
@@ -1123,7 +1174,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal reveal-delay-2 has-cursor" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80" alt="Typography & Brand System" loading="lazy">
             </div>
@@ -1139,7 +1190,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal has-cursor" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1200&q=80" alt="3D Book Mockups" loading="lazy">
             </div>
@@ -1160,21 +1211,62 @@
 </section>
 
 <div class="modal-overlay" id="projectModal">
-    <button class="modal-close" onclick="closeModal()">×</button>
+    <button class="modal-close" onclick="closeModal()">&times;</button>
     <div class="modal-content" id="modalContent"></div>
 </div>
 
-<section class="footer-cta">
-    <a href="mailto:hello@tobest.digital" class="footer-cta-text">LET'S CONNECT</a>
-</section>
-
-<footer class="footer-bottom">
-    <p class="footer-copy">© 2026 Tobest Digital. All rights reserved.</p>
-    <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="works.html">Work</a>
-        <a href="team.html">Team</a>
-        <a href="mailto:hello@tobest.digital">Contact</a>
+<!-- Rich Footer -->
+<footer class="footer">
+    <div class="footer-cta reveal">
+        <a href="mailto:hello@tobest.digital">Let's Connect</a>
+    </div>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <a href="index.html" class="footer-logo">
+                <div class="logo-icon" style="width:32px;height:32px;font-size:0.9rem;">T</div>
+                Tobest
+            </a>
+            <p class="footer-desc">Growth systems for authors, creators, and online businesses that value strategy over shortcuts.</p>
+            <div class="footer-social">
+                <a href="#" class="footer-social-link" aria-label="Twitter">&#120143;</a>
+                <a href="#" class="footer-social-link" aria-label="LinkedIn">in</a>
+                <a href="#" class="footer-social-link" aria-label="Instagram">IG</a>
+                <a href="#" class="footer-social-link" aria-label="YouTube">YT</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-title">Go to</h4>
+            <ul class="footer-links">
+                <li><a href="index.html" class="footer-link">Home</a></li>
+                <li><a href="works.html" class="footer-link">Work</a></li>
+                <li><a href="team.html" class="footer-link">Team</a></li>
+                <li><a href="index.html#services" class="footer-link">Services</a></li>
+                <li><a href="index.html#contact" class="footer-link">Connect</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-title">Follow us</h4>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">X / Twitter</a></li>
+                <li><a href="#" class="footer-link">LinkedIn</a></li>
+                <li><a href="#" class="footer-link">Instagram</a></li>
+                <li><a href="#" class="footer-link">Medium</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-title">Legal</h4>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                <li><a href="#" class="footer-link">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-copyright">&#169; 2026 Tobest Digital. All rights reserved.</div>
+        <div class="footer-legal">
+            <a href="#" class="footer-legal-link">Privacy</a>
+            <a href="#" class="footer-legal-link">Terms</a>
+        </div>
     </div>
 </footer>
 
@@ -1325,501 +1417,4 @@ const projects = {
         category: "website",
         tag: "Author Website & Sales Funnel Design",
         title: "Book Launch Landing Page",
-        subtitle: "28% opt-in rate, 5K subscribers",
-        heroImage: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&q=80",
-        metrics: [{value:"28%",label:"Opt-in Rate"}, {value:"5K",label:"Subscribers"}, {value:"3",label:"Weeks"}],
-        challenge: "A debut author needed to build an email list before launch but had no landing page or lead magnet strategy in place.",
-        strategy: "Designed a high-converting landing page with free chapter download as lead magnet, exit-intent popups, and social proof integration. Optimized for Facebook ad traffic.",
-        tools: ["Unbounce", "ConvertKit", "Canva", "Facebook Ads"],
-        timeline: "3 weeks from concept to live",
-        testimonial: {
-            quote: "5,000 subscribers before launch day meant I had a ready audience. The landing page converted like crazy.",
-            name: "Anna Schmidt",
-            role: "Debut Author",
-            avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=80", "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"]
-    },
-    "web4": {
-        id: "web4",
-        category: "website",
-        tag: "Author Website & Sales Funnel Design",
-        title: "Automated Email Sequence",
-        subtitle: "$18K automated revenue while on vacation",
-        heroImage: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80",
-        metrics: [{value:"$18K",label:"Automated Revenue"}, {value:"42%",label:"Open Rate"}, {value:"8",label:"Email Sequence"}],
-        challenge: "An author was leaving money on the table by not having an automated email sequence to nurture new subscribers into buyers.",
-        strategy: "Created an 8-email welcome sequence with storytelling, value delivery, and strategic sales pitches. Integrated with website popups and purchase triggers.",
-        tools: ["ActiveCampaign", "Zapier", "Canva", "Google Sheets"],
-        timeline: "2 weeks to build and test",
-        testimonial: {
-            quote: "I went on vacation and came back to $18K in sales. The email sequence runs itself now.",
-            name: "Tom Bradley",
-            role: "Self-Help Author",
-            avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80"]
-    },
-    "web5": {
-        id: "web5",
-        category: "website",
-        tag: "Author Website & Sales Funnel Design",
-        title: "Author Membership Platform",
-        subtitle: "Recurring revenue model, 2x community growth",
-        heroImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
-        metrics: [{value:"2x",label:"Community Growth"}, {value:"$12K",label:"Monthly MRR"}, {value:"6",label:"Months"}],
-        challenge: "A successful author wanted to monetize their audience beyond book sales with a membership community but didn't know how to structure it.",
-        strategy: "Built a membership platform with gated content, community forums, monthly live sessions, and tiered pricing. Integrated payment processing and content delivery.",
-        tools: ["Circle", "Stripe", "Zapier", "Webflow"],
-        timeline: "6 weeks to launch",
-        testimonial: {
-            quote: "The membership platform changed my business model. Recurring revenue gives me stability I never had before.",
-            name: "Nina Patel",
-            role: "Writing Coach & Author",
-            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80", "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80"]
-    },
-    "ad1": {
-        id: "ad1",
-        category: "ads",
-        tag: "Ads for Books",
-        title: "Meta Ads Book Launch",
-        subtitle: "4.2x ROAS, 3K copies sold",
-        heroImage: "https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=1200&q=80",
-        metrics: [{value:"4.2x",label:"ROAS"}, {value:"3K",label:"Copies Sold"}, {value:"$8.5K",label:"Ad Spend"}],
-        challenge: "A fiction author needed to drive book sales through Facebook/Instagram ads but was burning budget with poor targeting and creative.",
-        strategy: "Restructured campaigns with lookalike audiences, tested 20+ creative variations, and implemented retargeting funnels. Optimized for purchase events, not clicks.",
-        tools: ["Facebook Ads Manager", "Canva", "Google Analytics", "BookFunnel"],
-        timeline: "30 days to optimize and scale",
-        testimonial: {
-            quote: "4.2x return on ad spend is unheard of in publishing. Tobest's ad strategy is worth every penny.",
-            name: "Chris Anderson",
-            role: "Fiction Author",
-            avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=800&q=80", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"]
-    },
-    "ad2": {
-        id: "ad2",
-        category: "ads",
-        tag: "Ads for Books",
-        title: "Amazon KDP Advertising",
-        subtitle: "Best Seller rank achieved, ACOS under 25%",
-        heroImage: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=1200&q=80",
-        metrics: [{value:"#1",label:"Best Seller Rank"}, {value:"22%",label:"ACOS"}, {value:"45",label:"Days"}],
-        challenge: "A non-fiction author was struggling with Amazon Advertising, spending money but not reaching Best Seller status or profitable ACOS.",
-        strategy: "Optimized Sponsored Product and Sponsored Brand campaigns with precise keyword targeting, negative keyword management, and bid optimization. Monitored daily and adjusted.",
-        tools: ["Amazon Advertising", "Publisher Rocket", "Helium 10", "Excel"],
-        timeline: "45 days to Best Seller status",
-        testimonial: {
-            quote: "Best Seller badge in 45 days with profitable ACOS. I thought Amazon ads were a money pit until Tobest took over.",
-            name: "Patricia Moore",
-            role: "Non-Fiction Author",
-            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=800&q=80", "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"]
-    },
-    "ad3": {
-        id: "ad3",
-        category: "ads",
-        tag: "Ads for Books",
-        title: "Google Ads for Authors",
-        subtitle: "Search campaign, $12 cost per acquisition",
-        heroImage: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=1200&q=80",
-        metrics: [{value:"$12",label:"Cost Per Acquisition"}, {value:"5.8%",label:"Conversion Rate"}, {value:"60",label:"Days"}],
-        challenge: "A history author wanted to capture readers actively searching for books in their niche but had no Google Ads experience.",
-        strategy: "Built search campaigns targeting book-related keywords, competitor author names, and genre terms. Created dedicated landing pages for each ad group.",
-        tools: ["Google Ads", "Google Analytics", "Unbounce", "SEMrush"],
-        timeline: "60 days to profitable campaigns",
-        testimonial: {
-            quote: "$12 to acquire a reader who spends $50+ on my books. Google Ads is now my most profitable channel.",
-            name: "Dr. Alan Foster",
-            role: "History Author",
-            avatar: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=800&q=80", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"]
-    },
-    "ad4": {
-        id: "ad4",
-        category: "ads",
-        tag: "Ads for Books",
-        title: "Retargeting Funnel",
-        subtitle: "25% cart recovery rate, rebuilt customer relationships",
-        heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80",
-        metrics: [{value:"25%",label:"Cart Recovery"}, {value:"3.2x",label:"ROAS"}, {value:"30",label:"Days"}],
-        challenge: "An author was losing 95% of website visitors without capturing them. No retargeting strategy meant wasted traffic and lost sales.",
-        strategy: "Implemented pixel tracking, built custom audiences, and created retargeting ad sequences for cart abandoners, page visitors, and email non-openers.",
-        tools: ["Facebook Pixel", "Google Tag Manager", "AdRoll", "Klaviyo"],
-        timeline: "30 days to full implementation",
-        testimonial: {
-            quote: "Recovering 25% of abandoned carts literally doubled my revenue. The retargeting funnel is pure magic.",
-            name: "Jessica Lee",
-            role: "Romance Author",
-            avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80", "https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=800&q=80"]
-    },
-    "seo1": {
-        id: "seo1",
-        category: "seo",
-        tag: "SEO & PR for Books",
-        title: "#1 Google Ranking",
-        subtitle: "Book category domination achieved",
-        heroImage: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=1200&q=80",
-        metrics: [{value:"#1",label:"Google Ranking"}, {value:"12K",label:"Monthly Traffic"}, {value:"4",label:"Months"}],
-        challenge: "A cookbook author wanted to rank #1 on Google for their niche but had zero SEO strategy and a brand new website.",
-        strategy: "Conducted keyword research, optimized on-page SEO, built quality backlinks through guest posting and recipe features, and created pillar content strategy.",
-        tools: ["Ahrefs", "Surfer SEO", "WordPress", "Google Search Console"],
-        timeline: "4 months to #1 ranking",
-        testimonial: {
-            quote: "Ranking #1 on Google for 'best vegan cookbook' changed everything. Organic traffic is my #1 sales channel now.",
-            name: "Maria Santos",
-            role: "Cookbook Author",
-            avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=800&q=80", "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80"]
-    },
-    "seo2": {
-        id: "seo2",
-        category: "seo",
-        tag: "SEO & PR for Books",
-        title: "Media Coverage Campaign",
-        subtitle: "Featured in 12 publications, 5x quality inquiries",
-        heroImage: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80",
-        metrics: [{value:"12",label:"Publications"}, {value:"5x",label:"Inquiry Increase"}, {value:"90",label:"Days"}],
-        challenge: "A business author needed press coverage and media mentions to build authority but had no PR connections or press kit.",
-        strategy: "Created compelling press kit, pitched to relevant journalists and podcasts, secured guest article placements, and leveraged HARO for ongoing media opportunities.",
-        tools: ["HARO", "Muck Rack", "Canva", "Google Alerts"],
-        timeline: "90 days campaign duration",
-        testimonial: {
-            quote: "Being featured in Forbes and Inc. changed how people perceive my brand. Media coverage is the best marketing investment.",
-            name: "Richard Blake",
-            role: "Business Author",
-            avatar: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80", "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80"]
-    },
-    "seo3": {
-        id: "seo3",
-        category: "seo",
-        tag: "SEO & PR for Books",
-        title: "Content SEO Strategy",
-        subtitle: "340% organic traffic increase in 90 days",
-        heroImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80",
-        metrics: [{value:"340%",label:"Traffic Increase"}, {value:"45K",label:"Monthly Visitors"}, {value:"90",label:"Days"}],
-        challenge: "A fiction author had a blog but it wasn't driving traffic or book sales. Content was random and not optimized for search.",
-        strategy: "Developed a content calendar targeting reader search intent, optimized existing posts, created new SEO-focused articles, and built internal linking structure.",
-        tools: ["Ahrefs", "Surfer SEO", "WordPress", "Grammarly"],
-        timeline: "90 days to 340% increase",
-        testimonial: {
-            quote: "340% more organic traffic in 90 days. My blog went from a hobby to my most powerful marketing tool.",
-            name: "Sophie Turner",
-            role: "Fiction Author",
-            avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80", "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80"]
-    },
-    "fmt1": {
-        id: "fmt1",
-        category: "formatting",
-        tag: "Formatting & Book Design",
-        title: "Bestseller Cover Design",
-        subtitle: "Award-winning fiction cover, doubled pre-orders",
-        heroImage: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200&q=80",
-        metrics: [{value:"2x",label:"Pre-orders"}, {value:"#1",label:"Design Award"}, {value:"3",label:"Weeks"}],
-        challenge: "A debut author had a brilliant manuscript but a generic cover that wasn't selling the book's quality or genre appeal.",
-        strategy: "Designed a genre-appropriate, emotionally compelling cover with professional typography, color psychology, and thumbnail optimization for Amazon.",
-        tools: ["Adobe Photoshop", "Illustrator", "InDesign", "Procreate"],
-        timeline: "3 weeks from concept to final",
-        testimonial: {
-            quote: "The cover won a design award and doubled my pre-orders. Readers judge books by covers—Tobest makes sure they judge yours positively.",
-            name: "Alex Rivera",
-            role: "Debut Author",
-            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&q=80", "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80"]
-    },
-    "fmt2": {
-        id: "fmt2",
-        category: "formatting",
-        tag: "Formatting & Book Design",
-        title: "Professional Interior Layout",
-        subtitle: "Print-ready formatting, 300+ pages",
-        heroImage: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1200&q=80",
-        metrics: [{value:"300+",label:"Pages"}, {value:"0",label:"Formatting Errors"}, {value:"2",label:"Weeks"}],
-        challenge: "A non-fiction author had a 300+ page manuscript that needed professional interior formatting for both print and ebook versions.",
-        strategy: "Created custom interior design with proper margins, typography hierarchy, chapter openings, headers/footers, and ensured KDP print-ready specifications.",
-        tools: ["Adobe InDesign", "Vellum", "Kindle Create", "Acrobat"],
-        timeline: "2 weeks for print and ebook",
-        testimonial: {
-            quote: "The interior looks like it came from a major publisher. Zero errors, perfect margins, beautiful chapter pages.",
-            name: "Diane Foster",
-            role: "Non-Fiction Author",
-            avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800&q=80", "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&q=80"]
-    },
-    "fmt3": {
-        id: "fmt3",
-        category: "formatting",
-        tag: "Formatting & Book Design",
-        title: "Ebook & Print Bundle",
-        subtitle: "Multi-format design, Amazon KDP compliant",
-        heroImage: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80",
-        metrics: [{value:"3",label:"Formats"}, {value:"100%",label:"KDP Compliant"}, {value:"5",label:"Days"}],
-        challenge: "An author needed their book formatted for Kindle, paperback, and hardcover simultaneously without errors or rejections.",
-        strategy: "Designed master template that auto-adapts to each format, ensured proper TOC, metadata, and cover spine calculations. Tested on all devices.",
-        tools: ["Adobe InDesign", "Vellum", "Calibre", "KDP Preview"],
-        timeline: "5 days for all three formats",
-        testimonial: {
-            quote: "All three formats approved on first submission. No rejections, no errors, no stress. Tobest knows KDP inside and out.",
-            name: "Kevin O'Brien",
-            role: "Indie Author",
-            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80", "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80"]
-    },
-    "fmt4": {
-        id: "fmt4",
-        category: "formatting",
-        tag: "Formatting & Book Design",
-        title: "Typography & Brand System",
-        subtitle: "Consistent visual identity across 5-book series",
-        heroImage: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80",
-        metrics: [{value:"5",label:"Books"}, {value:"1",label:"Brand System"}, {value:"3",label:"Weeks"}],
-        challenge: "A fantasy series author needed a cohesive visual identity across 5 books that readers could instantly recognize as part of the same world.",
-        strategy: "Created a comprehensive brand system including cover templates, typography rules, color palette, map illustrations, and interior design guidelines.",
-        tools: ["Adobe InDesign", "Illustrator", "Photoshop", "Figma"],
-        timeline: "3 weeks for complete system",
-        testimonial: {
-            quote: "Readers can spot my series from across the bookstore. The brand system Tobest created is my secret weapon.",
-            name: "Marcus Webb",
-            role: "Fantasy Series Author",
-            avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80", "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800&q=80"]
-    },
-    "fmt5": {
-        id: "fmt5",
-        category: "formatting",
-        tag: "Formatting & Book Design",
-        title: "3D Book Mockups",
-        subtitle: "Marketing assets for ads and social media",
-        heroImage: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1200&q=80",
-        metrics: [{value:"20+",label:"Mockups"}, {value:"5",label:"Angles"}, {value:"1",label:"Week"}],
-        challenge: "An author needed professional 3D book mockups for marketing but couldn't afford expensive photography or lacked design skills.",
-        strategy: "Created photorealistic 3D mockups in multiple angles and settings (desk, hand-held, shelf, etc.) optimized for social media, ads, and website use.",
-        tools: ["Adobe Photoshop", "Dimension", "Blender", "Canva"],
-        timeline: "1 week for complete mockup set",
-        testimonial: {
-            quote: "The mockups look like professional product photography. My ads and social posts look like they cost thousands to produce.",
-            name: "Rachel Kim",
-            role: "Self-Published Author",
-            avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80"
-        },
-        gallery: ["https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&q=80", "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80"]
-    },
-};
-
-
-const filterWrapper = document.getElementById('filterWrapper');
-const filterTrigger = document.getElementById('filterTrigger');
-const filterLabel = document.getElementById('filterLabel');
-const filterOptions = document.querySelectorAll('.filter-option');
-const workCards = document.querySelectorAll('.work-card');
-
-filterTrigger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    filterWrapper.classList.toggle('open');
-});
-
-document.addEventListener('click', (e) => {
-    if (!filterWrapper.contains(e.target)) {
-        filterWrapper.classList.remove('open');
-    }
-});
-
-filterOptions.forEach(opt => {
-    opt.addEventListener('click', () => {
-        const filter = opt.dataset.filter;
-        filterLabel.textContent = opt.textContent;
-        filterOptions.forEach(o => o.classList.remove('active'));
-        opt.classList.add('active');
-        filterWrapper.classList.remove('open');
-
-        workCards.forEach(card => {
-            if (filter === 'all' || card.dataset.category === filter) {
-                card.style.display = '';
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 50);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(-10px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 400);
-            }
-        });
-    });
-});
-
-const modal = document.getElementById('projectModal');
-const modalContent = document.getElementById('modalContent');
-
-function openModal(projectId) {
-    const p = projects[projectId];
-    if (!p) return;
-
-    const related = Object.values(projects).filter(r => r.category === p.category && r.id !== p.id).slice(0, 3);
-
-    const metricsHtml = p.metrics.map(m => `
-        <div class="metric-box">
-            <div class="metric-value">${m.value}</div>
-            <div class="metric-label">${m.label}</div>
-        </div>
-    `).join('');
-
-    const galleryHtml = p.gallery.map(g => `
-        <div class="showcase-img">
-            <img src="${g}" alt="${p.title}" loading="lazy">
-        </div>
-    `).join('');
-
-    const toolsHtml = p.tools.map(t => `<span class="tool-tag">${t}</span>`).join('');
-
-    const relatedHtml = related.length > 0 ? `
-        <div class="modal-section">
-            <div class="modal-section-title">Related Projects</div>
-            <div class="related-grid">
-                ${related.map(r => `
-                    <div class="related-card" onclick="switchModal('${r.id}')">
-                        <div class="related-card-img">
-                            <img src="${r.heroImage}" alt="${r.title}" loading="lazy">
-                        </div>
-                        <div class="related-card-info">
-                            <div class="related-card-title">${r.title}</div>
-                            <div class="related-card-cat">${r.tag}</div>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    ` : '';
-
-    modalContent.innerHTML = `
-        <div class="modal-hero-img">
-            <img src="${p.heroImage}" alt="${p.title}">
-        </div>
-        <div class="modal-header">
-            <span class="modal-category">${p.tag}</span>
-            <h2 class="modal-title">${p.title}</h2>
-            <p class="modal-subtitle">${p.subtitle}</p>
-        </div>
-        <div class="modal-metrics">${metricsHtml}</div>
-        <div class="modal-section">
-            <div class="modal-section-title">The Challenge</div>
-            <div class="modal-text"><p>${p.challenge}</p></div>
-        </div>
-        <div class="modal-section">
-            <div class="modal-section-title">Strategy & Execution</div>
-            <div class="modal-text"><p>${p.strategy}</p></div>
-        </div>
-        <div class="modal-section">
-            <div class="modal-section-title">Visual Showcase</div>
-            <div class="showcase-grid">${galleryHtml}</div>
-        </div>
-        <div class="modal-section">
-            <div class="modal-section-title">Tools Used</div>
-            <div class="tools-list">${toolsHtml}</div>
-        </div>
-        <div class="modal-section">
-            <div class="modal-section-title">Timeline</div>
-            <div class="timeline-box">
-                <div class="timeline-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 6v6l4 2"/>
-                    </svg>
-                </div>
-                <div class="timeline-text">${p.timeline}</div>
-            </div>
-        </div>
-        <div class="modal-section">
-            <div class="modal-section-title">Client Testimonial</div>
-            <div class="testimonial-box">
-                <div class="testimonial-quote">${p.testimonial.quote}</div>
-                <div class="testimonial-author">
-                    <img src="${p.testimonial.avatar}" alt="${p.testimonial.name}" class="testimonial-avatar">
-                    <div>
-                        <div class="testimonial-name">${p.testimonial.name}</div>
-                        <div class="testimonial-role">${p.testimonial.role}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        ${relatedHtml}
-    `;
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function switchModal(projectId) {
-    modalContent.style.opacity = '0';
-    modalContent.style.transform = 'translateY(20px)';
-    setTimeout(() => {
-        openModal(projectId);
-        modalContent.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-        modalContent.style.opacity = '1';
-        modalContent.style.transform = 'translateY(0)';
-    }, 300);
-}
-
-function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-    setTimeout(() => {
-        modalContent.innerHTML = '';
-    }, 400);
-}
-
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-});
-
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    navLinks.style.position = 'absolute';
-    navLinks.style.top = '100%';
-    navLinks.style.left = '0';
-    navLinks.style.right = '0';
-    navLinks.style.flexDirection = 'column';
-    navLinks.style.background = 'rgba(10, 10, 15, 0.95)';
-    navLinks.style.backdropFilter = 'blur(20px)';
-    navLinks.style.padding = '24px';
-    navLinks.style.borderBottom = '1px solid var(--border)';
-    navLinks.style.gap = '20px';
-});
-</script>
-</body>
-</html>
+        subtitle: "28% opt-in rate, 5
