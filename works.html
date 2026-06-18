@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work — Tobest Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: rgba(255,255,255,0.03);
+            --bg-card-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.15);
+            --text: #f5f5f7;
+            --text-muted: rgba(255,255,255,0.5);
+            --text-dim: rgba(255,255,255,0.3);
+            --accent: #8b5cf6;
+            --accent2: #f97316;
+            --accent-gradient: linear-gradient(135deg, #f97316, #8b5cf6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10,10,15,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: var(--accent-gradient);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800; font-size: 16px; color: white;
+        }
+
+        .logo-text {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700; font-size: 20px;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex; gap: 32px; align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px; font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+        .nav-cta {
+            background: var(--accent-gradient);
+            color: white; padding: 10px 24px;
+            border-radius: 100px; font-size: 14px;
+            font-weight: 600; text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.3); }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none;
+            color: var(--text); font-size: 24px; cursor: pointer;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 40px 60px;
+            overflow: hidden;
+        }
+
+        .hero-watermark {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: clamp(80px, 18vw, 280px);
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+            letter-spacing: -4px;
+        }
+
+        .hero-content {
+            position: relative; z-index: 1;
+            text-align: center;
+            max-width: 700px;
+        }
+
+        .hero-tagline {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero-tagline span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 16px; color: var(--text-muted);
+            line-height: 1.6; max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .filter-section {
+            position: relative; z-index: 2;
+            display: flex;
+            justify-content: center;
+            padding: 0 40px 40px;
+        }
+
+        .filter-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .filter-trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px; font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-trigger:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+        }
+
+        .filter-trigger svg {
+            width: 16px; height: 16px;
+            transition: transform 0.3s;
+            color: var(--text-muted);
+        }
+
+        .filter-wrapper.open .filter-trigger svg {
+            transform: rotate(180deg);
+        }
+
+        .filter-dropdown {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.95);
+            transform-origin: top center;
+            background: rgba(20,20,28,0.98);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 8px;
+            min-width: 320px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .filter-wrapper.open .filter-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+        }
+
+        .filter-option {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: var(--text-muted);
+            font-size: 14px; font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none; background: none;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-option:hover {
+            background: rgba(139,92,246,0.1);
+            color: var(--text);
+        }
+
+        .filter-option.active {
+            background: rgba(139,92,246,0.15);
+            color: var(--accent);
+        }
+
+        .work-section {
+            padding: 0 40px 100px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .work-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .work-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border-color: var(--border-hover);
+        }
+
+        .work-card.hidden {
+            display: none;
+        }
+
+        .work-card-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .work-card-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+        }
+
+        .work-card:hover .work-card-image img {
+            transform: scale(1.05);
+        }
+
+        .work-card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,15,0.9) 0%, rgba(10,10,15,0.3) 40%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .work-card-content {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 32px;
+            z-index: 2;
+        }
+
+        .work-card-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(139,92,246,0.15);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 100px;
+            font-size: 11px; font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .work-card-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 24px; font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .work-card-desc {
+            font-size: 14px; color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .work-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--accent-gradient);
+            border: none;
+            border-radius: 100px;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .work-card-btn:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 25px rgba(139,92,246,0.3);
+        }
+
+        .work-card-btn svg {
+            width: 14px; height: 14px;
+            transition: transform 0.3s;
+        }
+
+        .work-card-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(10,10,15,0.98);
+            backdrop-filter: blur(30px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 40px 80px;
+            transform: translateY(40px);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 24px; right: 24px;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+            z-index: 1001;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.1);
+            transform: rotate(90deg);
+        }
+
+        .modal-hero-img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 48px;
+            border: 1px solid var(--border);
+        }
+
+        .modal-hero-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .modal-header {
+            margin-bottom: 48px;
+        }
+
+        .modal-category {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(139,92,246,0.15);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 100px;
+            font-size: 12px; font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .modal-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .modal-subtitle {
+            font-size: 18px; color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .modal-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 56px;
+        }
+
+        .metric-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .metric-box:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-family: 'Manrope', sans-serif;
+            font-size: 32px; font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 13px; color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .modal-section {
+            margin-bottom: 56px;
+        }
+
+        .modal-section-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px; font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        .modal-text {
+            font-size: 16px; color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .modal-text p { margin-bottom: 16px; }
+        .modal-text p:last-child { margin-bottom: 0; }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .showcase-img {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            aspect-ratio: 16 / 10;
+        }
+
+        .showcase-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .showcase-img:hover img { transform: scale(1.03); }
+
+        .tools-list {
+            display: flex; flex-wrap: wrap; gap: 10px;
+        }
+
+        .tool-tag {
+            padding: 8px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 13px; font-weight: 500;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+
+        .tool-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .timeline-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .timeline-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(139,92,246,0.1);
+            border: 1px solid rgba(139,92,246,0.2);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .timeline-icon svg {
+            width: 20px; height: 20px;
+            color: var(--accent);
+        }
+
+        .timeline-text {
+            font-size: 15px; color: var(--text);
+            font-weight: 500;
+        }
+
+        .testimonial-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .testimonial-box::before {
+            content: '"';
+            position: absolute;
+            top: 20px; left: 30px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 80px;
+            color: rgba(139,92,246,0.1);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .testimonial-quote {
+            font-size: 18px; color: var(--text);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 28px;
+            position: relative; z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .testimonial-avatar {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+        }
+
+        .testimonial-name {
+            font-size: 15px; font-weight: 600;
+            color: var(--text);
+        }
+
+        .testimonial-role {
+            font-size: 13px; color: var(--text-muted);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .related-card {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.4s;
+            background: var(--bg-card);
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+
+        .related-card-img {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+        }
+
+        .related-card-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .related-card:hover .related-card-img img { transform: scale(1.05); }
+
+        .related-card-info {
+            padding: 16px 20px;
+        }
+
+        .related-card-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px; font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .related-card-cat {
+            font-size: 12px; color: var(--text-dim);
+        }
+
+        .footer-cta {
+            padding: 120px 40px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-cta-text {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(40px, 8vw, 100px);
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255,255,255,0.15);
+            letter-spacing: -2px;
+            cursor: pointer;
+            transition: all 0.4s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .footer-cta-text:hover {
+            -webkit-text-stroke: 1.5px var(--accent);
+            color: var(--accent);
+            -webkit-text-fill-color: var(--accent);
+        }
+
+        .footer-bottom {
+            padding: 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-copy {
+            font-size: 13px; color: var(--text-dim);
+        }
+
+        .footer-links {
+            display: flex; gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 13px; color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--text); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero { padding: 120px 20px 40px; }
+            .work-section { padding: 0 20px 60px; }
+            .modal-content { padding: 80px 20px 60px; }
+            .modal-metrics { grid-template-columns: 1fr; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .work-card-content { padding: 24px; }
+            .work-card-title { font-size: 20px; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+<nav id="navbar">
+    <a href="index.html" class="logo">
+        <div class="logo-icon">T</div>
+        <span class="logo-text">Tobest</span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="works.html" class="active">Work</a>
+        <a href="team.html">Team</a>
+        <a href="index.html#contact" class="nav-cta">Let's Connect</a>
+    </div>
+    <button class="mobile-menu-btn">☰</button>
+</nav>
+
+<section class="hero">
+    <div class="hero-watermark">OUR WORK</div>
+    <div class="hero-content">
+        <h1 class="hero-tagline">Radical. <span>Results.</span> Recognized.</h1>
+        <p class="hero-desc">Check out our recent case studies and project deliveries for authors and creators.</p>
+    </div>
+</section>
+
+<div class="filter-section">
+    <div class="filter-wrapper" id="filterWrapper">
+        <button class="filter-trigger" id="filterTrigger">
+            <span id="filterLabel">All Work</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+            </svg>
+        </button>
+        <div class="filter-dropdown" id="filterDropdown">
+            <button class="filter-option active" data-filter="all">All Work</button>
+            <button class="filter-option" data-filter="social-media">Social Media Promotion</button>
+            <button class="filter-option" data-filter="website">Author Website & Sales Funnel Design</button>
+            <button class="filter-option" data-filter="ads">Ads for Books</button>
+            <button class="filter-option" data-filter="seo">SEO & PR for Books</button>
+            <button class="filter-option" data-filter="formatting">Formatting & Book Design</button>
+        </div>
+    </div>
+</div>
+
+<section class="work-section">
+    <div class="work-grid" id="workGrid">
+        <div class="work-card" data-category="social-media">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80" alt="45K Followers in 60 Days" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Social Media Promotion</span>
+                <h3 class="work-card-title">45K Followers in 60 Days</h3>
+                <p class="work-card-desc">Viral content strategy for fiction author</p>
+                <button class="work-card-btn" onclick="openModal('sm1')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="social-media">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?w=1200&q=80" alt="TikTok Book Launch Campaign" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Social Media Promotion</span>
+                <h3 class="work-card-title">TikTok Book Launch Campaign</h3>
+                <p class="work-card-desc">2.1M views, 12K pre-orders generated</p>
+                <button class="work-card-btn" onclick="openModal('sm2')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="social-media">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1611162618335-8b1569810432?w=1200&q=80" alt="Twitter Author Community Build" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Social Media Promotion</span>
+                <h3 class="work-card-title">Twitter Author Community Build</h3>
+                <p class="work-card-desc">From 200 to 15K engaged followers</p>
+                <button class="work-card-btn" onclick="openModal('sm3')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="social-media">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&q=80" alt="YouTube Author Channel Growth" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Social Media Promotion</span>
+                <h3 class="work-card-title">YouTube Author Channel Growth</h3>
+                <p class="work-card-desc">Book trailer strategy, 500K views</p>
+                <button class="work-card-btn" onclick="openModal('sm4')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="social-media">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80" alt="Pinterest Book Marketing" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Social Media Promotion</span>
+                <h3 class="work-card-title">Pinterest Book Marketing</h3>
+                <p class="work-card-desc">Visual content driving 8K monthly clicks</p>
+                <button class="work-card-btn" onclick="openModal('sm5')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="website">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80" alt="Bestseller Author Website" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Author Website & Sales Funnel Design</span>
+                <h3 class="work-card-title">Bestseller Author Website</h3>
+                <p class="work-card-desc">3x conversion rate increase</p>
+                <button class="work-card-btn" onclick="openModal('web1')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="website">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" alt="High-Converting Book Funnel" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Author Website & Sales Funnel Design</span>
+                <h3 class="work-card-title">High-Converting Book Funnel</h3>
+                <p class="work-card-desc">$47K launch revenue in one week</p>
+                <button class="work-card-btn" onclick="openModal('web2')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="website">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&q=80" alt="Book Launch Landing Page" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Author Website & Sales Funnel Design</span>
+                <h3 class="work-card-title">Book Launch Landing Page</h3>
+                <p class="work-card-desc">28% opt-in rate, 5K subscribers</p>
+                <button class="work-card-btn" onclick="openModal('web3')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="website">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80" alt="Automated Email Sequence" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Author Website & Sales Funnel Design</span>
+                <h3 class="work-card-title">Automated Email Sequence</h3>
+                <p class="work-card-desc">$18K automated revenue while on vacation</p>
+                <button class="work-card-btn" onclick="openModal('web4')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="website">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Author Membership Platform" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Author Website & Sales Funnel Design</span>
+                <h3 class="work-card-title">Author Membership Platform</h3>
+                <p class="work-card-desc">Recurring revenue model, 2x community growth</p>
+                <button class="work-card-btn" onclick="openModal('web5')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="ads">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=1200&q=80" alt="Meta Ads Book Launch" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Ads for Books</span>
+                <h3 class="work-card-title">Meta Ads Book Launch</h3>
+                <p class="work-card-desc">4.2x ROAS, 3K copies sold</p>
+                <button class="work-card-btn" onclick="openModal('ad1')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="ads">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=1200&q=80" alt="Amazon KDP Advertising" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Ads for Books</span>
+                <h3 class="work-card-title">Amazon KDP Advertising</h3>
+                <p class="work-card-desc">Best Seller rank achieved, ACOS under 25%</p>
+                <button class="work-card-btn" onclick="openModal('ad2')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="ads">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=1200&q=80" alt="Google Ads for Authors" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Ads for Books</span>
+                <h3 class="work-card-title">Google Ads for Authors</h3>
+                <p class="work-card-desc">Search campaign, $12 cost per acquisition</p>
+                <button class="work-card-btn" onclick="openModal('ad3')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="ads">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" alt="Retargeting Funnel" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Ads for Books</span>
+                <h3 class="work-card-title">Retargeting Funnel</h3>
+                <p class="work-card-desc">25% cart recovery rate, rebuilt customer relationships</p>
+                <button class="work-card-btn" onclick="openModal('ad4')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="seo">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=1200&q=80" alt="#1 Google Ranking" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">SEO & PR for Books</span>
+                <h3 class="work-card-title">#1 Google Ranking</h3>
+                <p class="work-card-desc">Book category domination achieved</p>
+                <button class="work-card-btn" onclick="openModal('seo1')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="seo">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80" alt="Media Coverage Campaign" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">SEO & PR for Books</span>
+                <h3 class="work-card-title">Media Coverage Campaign</h3>
+                <p class="work-card-desc">Featured in 12 publications, 5x quality inquiries</p>
+                <button class="work-card-btn" onclick="openModal('seo2')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="seo">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" alt="Content SEO Strategy" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">SEO & PR for Books</span>
+                <h3 class="work-card-title">Content SEO Strategy</h3>
+                <p class="work-card-desc">340% organic traffic increase in 90 days</p>
+                <button class="work-card-btn" onclick="openModal('seo3')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="formatting">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200&q=80" alt="Bestseller Cover Design" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Formatting & Book Design</span>
+                <h3 class="work-card-title">Bestseller Cover Design</h3>
+                <p class="work-card-desc">Award-winning fiction cover, doubled pre-orders</p>
+                <button class="work-card-btn" onclick="openModal('fmt1')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="formatting">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1200&q=80" alt="Professional Interior Layout" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Formatting & Book Design</span>
+                <h3 class="work-card-title">Professional Interior Layout</h3>
+                <p class="work-card-desc">Print-ready formatting, 300+ pages</p>
+                <button class="work-card-btn" onclick="openModal('fmt2')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="formatting">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80" alt="Ebook & Print Bundle" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Formatting & Book Design</span>
+                <h3 class="work-card-title">Ebook & Print Bundle</h3>
+                <p class="work-card-desc">Multi-format design, Amazon KDP compliant</p>
+                <button class="work-card-btn" onclick="openModal('fmt3')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="formatting">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80" alt="Typography & Brand System" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Formatting & Book Design</span>
+                <h3 class="work-card-title">Typography & Brand System</h3>
+                <p class="work-card-desc">Consistent visual identity across 5-book series</p>
+                <button class="work-card-btn" onclick="openModal('fmt4')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="work-card" data-category="formatting">
+            <div class="work-card-image">
+                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1200&q=80" alt="3D Book Mockups" loading="lazy">
+            </div>
+            <div class="work-card-content">
+                <span class="work-card-tag">Formatting & Book Design</span>
+                <h3 class="work-card-title">3D Book Mockups</h3>
+                <p class="work-card-desc">Marketing assets for ads and social media</p>
+                <button class="work-card-btn" onclick="openModal('fmt5')">
+                    View Project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="modal-overlay" id="projectModal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-content" id="modalContent"></div>
+</div>
+
+<section class="footer-cta">
+    <a href="mailto:hello@tobest.digital" class="footer-cta-text">LET'S CONNECT</a>
+</section>
+
+<footer class="footer-bottom">
+    <p class="footer-copy">© 2026 Tobest Digital. All rights reserved.</p>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="works.html">Work</a>
+        <a href="team.html">Team</a>
+        <a href="mailto:hello@tobest.digital">Contact</a>
+    </div>
+</footer>
+
+<script>
+const projects = {
+    "sm1": {
+        id: "sm1",
+        category: "social-media",
+        tag: "Social Media Promotion",
+        title: "45K Followers in 60 Days",
+        subtitle: "Viral content strategy for fiction author",
+        heroImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80",
+        metrics: [{value:"45K",label:"New Followers"}, {value:"8.7%",label:"Engagement Rate"}, {value:"60",label:"Days"}],
+        challenge: "A debut fiction author had zero social presence and needed to build an audience before their book launch. Traditional posting wasn't gaining traction.",
+        strategy: "We developed a viral content strategy using short-form video, quote graphics, and behind-the-scenes content. Partnered with book influencers for cross-promotion and ran targeted engagement campaigns.",
+        tools: ["Instagram", "TikTok", "Canva", "Later", "CapCut"],
+        timeline: "60 days from strategy to 45K followers",
+        testimonial: {
+            quote: "Tobest transformed my social media from zero to 45K in two months. My book launch sold out in 48 hours.",
+            name: "Sarah Mitchell",
+            role: "Fiction Author",
+            avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80", "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80"]
+    },
+    "sm2": {
+        id: "sm2",
+        category: "social-media",
+        tag: "Social Media Promotion",
+        title: "TikTok Book Launch Campaign",
+        subtitle: "2.1M views, 12K pre-orders generated",
+        heroImage: "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=1200&q=80",
+        metrics: [{value:"2.1M",label:"TikTok Views"}, {value:"12K",label:"Pre-orders"}, {value:"340K",label:"Likes"}],
+        challenge: "A non-fiction author needed to create buzz for their upcoming book launch but had no TikTok presence or video content strategy.",
+        strategy: "Created a 30-day TikTok campaign with daily book teasers, author tips, and trending audio integration. Leveraged booktok community hashtags and collaborated with 15 micro-influencers.",
+        tools: ["TikTok", "CapCut", "Canva", "Google Analytics"],
+        timeline: "45 days campaign duration",
+        testimonial: {
+            quote: "The TikTok campaign exceeded every expectation. 12,000 pre-orders before launch day was beyond my wildest dreams.",
+            name: "David Chen",
+            role: "Non-Fiction Author",
+            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?w=800&q=80", "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80"]
+    },
+    "sm3": {
+        id: "sm3",
+        category: "social-media",
+        tag: "Social Media Promotion",
+        title: "Twitter Author Community Build",
+        subtitle: "From 200 to 15K engaged followers",
+        heroImage: "https://images.unsplash.com/photo-1611162618335-8b1569810432?w=1200&q=80",
+        metrics: [{value:"15K",label:"Followers"}, {value:"4.2%",label:"Engagement"}, {value:"90",label:"Days"}],
+        challenge: "An author wanted to build a Twitter community around their writing niche but struggled with consistent growth and engagement.",
+        strategy: "Implemented a daily thread strategy, engaged with writing communities, and created shareable writing tips. Used Twitter Spaces for weekly Q&A sessions.",
+        tools: ["Twitter/X", "Typefully", "Canva", "Notion"],
+        timeline: "90 days to reach 15K followers",
+        testimonial: {
+            quote: "My Twitter went from a ghost town to a thriving community. Readers now message me daily about my books.",
+            name: "Emma Rodriguez",
+            role: "Romance Author",
+            avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1611162618335-8b1569810432?w=800&q=80", "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=800&q=80"]
+    },
+    "sm4": {
+        id: "sm4",
+        category: "social-media",
+        tag: "Social Media Promotion",
+        title: "YouTube Author Channel Growth",
+        subtitle: "Book trailer strategy, 500K views",
+        heroImage: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&q=80",
+        metrics: [{value:"500K",label:"Video Views"}, {value:"25K",label:"Subscribers"}, {value:"3",label:"Months"}],
+        challenge: "A fantasy author needed to promote their book series through video content but had no YouTube presence or video production skills.",
+        strategy: "Produced cinematic book trailers, author vlogs, and world-building deep dives. Optimized for YouTube SEO and ran targeted ad campaigns to boost initial visibility.",
+        tools: ["YouTube", "Premiere Pro", "After Effects", "TubeBuddy"],
+        timeline: "3 months to 25K subscribers",
+        testimonial: {
+            quote: "The book trailers look like Hollywood productions. My subscribers tripled and book sales followed.",
+            name: "James Wright",
+            role: "Fantasy Author",
+            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&q=80", "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&q=80"]
+    },
+    "sm5": {
+        id: "sm5",
+        category: "social-media",
+        tag: "Social Media Promotion",
+        title: "Pinterest Book Marketing",
+        subtitle: "Visual content driving 8K monthly clicks",
+        heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80",
+        metrics: [{value:"8K",label:"Monthly Clicks"}, {value:"120K",label:"Impressions"}, {value:"6",label:"Months"}],
+        challenge: "A cookbook author needed to drive traffic to their Amazon listing using visual platforms but didn't know how to leverage Pinterest effectively.",
+        strategy: "Created branded pin templates, optimized boards for book-related keywords, and implemented a consistent pinning schedule. Focused on recipe previews and kitchen aesthetic content.",
+        tools: ["Pinterest", "Canva", "Tailwind", "Google Analytics"],
+        timeline: "6 months to consistent 8K monthly clicks",
+        testimonial: {
+            quote: "Pinterest is now my #1 traffic source. Tobest's visual strategy made my cookbook impossible to scroll past.",
+            name: "Lisa Park",
+            role: "Cookbook Author",
+            avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80", "https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=800&q=80"]
+    },
+    "web1": {
+        id: "web1",
+        category: "website",
+        tag: "Author Website & Sales Funnel Design",
+        title: "Bestseller Author Website",
+        subtitle: "3x conversion rate increase",
+        heroImage: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80",
+        metrics: [{value:"3x",label:"Conversion Increase"}, {value:"12%",label:"Email Capture"}, {value:"4",label:"Weeks"}],
+        challenge: "An established author had a dated website with poor mobile experience, slow loading, and no clear path for visitors to become readers or buyers.",
+        strategy: "Redesigned from scratch with mobile-first approach, integrated email capture funnels, added book preview chapters, and optimized checkout flow for direct sales.",
+        tools: ["Webflow", "Figma", "Mailchimp", "Stripe"],
+        timeline: "4 weeks design and development",
+        testimonial: {
+            quote: "My new website doesn't just look beautiful—it converts. Direct sales are up 300% since the redesign.",
+            name: "Michael Torres",
+            role: "Thriller Author",
+            avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80", "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=80"]
+    },
+    "web2": {
+        id: "web2",
+        category: "website",
+        tag: "Author Website & Sales Funnel Design",
+        title: "High-Converting Book Funnel",
+        subtitle: "$47K launch revenue in one week",
+        heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+        metrics: [{value:"$47K",label:"Launch Revenue"}, {value:"8.4%",label:"Funnel Conversion"}, {value:"7",label:"Days"}],
+        challenge: "A business author needed a sales funnel for their new book launch that could handle high traffic and convert visitors into buyers at scale.",
+        strategy: "Built a multi-step funnel with lead magnet, email nurture sequence, sales page with social proof, and one-click upsells. A/B tested every element.",
+        tools: ["ClickFunnels", "ActiveCampaign", "Stripe", "Zapier"],
+        timeline: "2 weeks to build, 7 days launch",
+        testimonial: {
+            quote: "$47,000 in one week. The funnel paid for itself 10x over. Tobest knows exactly how to sell books online.",
+            name: "Robert Kim",
+            role: "Business Author",
+            avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"]
+    },
+    "web3": {
+        id: "web3",
+        category: "website",
+        tag: "Author Website & Sales Funnel Design",
+        title: "Book Launch Landing Page",
+        subtitle: "28% opt-in rate, 5K subscribers",
+        heroImage: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&q=80",
+        metrics: [{value:"28%",label:"Opt-in Rate"}, {value:"5K",label:"Subscribers"}, {value:"3",label:"Weeks"}],
+        challenge: "A debut author needed to build an email list before launch but had no landing page or lead magnet strategy in place.",
+        strategy: "Designed a high-converting landing page with free chapter download as lead magnet, exit-intent popups, and social proof integration. Optimized for Facebook ad traffic.",
+        tools: ["Unbounce", "ConvertKit", "Canva", "Facebook Ads"],
+        timeline: "3 weeks from concept to live",
+        testimonial: {
+            quote: "5,000 subscribers before launch day meant I had a ready audience. The landing page converted like crazy.",
+            name: "Anna Schmidt",
+            role: "Debut Author",
+            avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&q=80", "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"]
+    },
+    "web4": {
+        id: "web4",
+        category: "website",
+        tag: "Author Website & Sales Funnel Design",
+        title: "Automated Email Sequence",
+        subtitle: "$18K automated revenue while on vacation",
+        heroImage: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80",
+        metrics: [{value:"$18K",label:"Automated Revenue"}, {value:"42%",label:"Open Rate"}, {value:"8",label:"Email Sequence"}],
+        challenge: "An author was leaving money on the table by not having an automated email sequence to nurture new subscribers into buyers.",
+        strategy: "Created an 8-email welcome sequence with storytelling, value delivery, and strategic sales pitches. Integrated with website popups and purchase triggers.",
+        tools: ["ActiveCampaign", "Zapier", "Canva", "Google Sheets"],
+        timeline: "2 weeks to build and test",
+        testimonial: {
+            quote: "I went on vacation and came back to $18K in sales. The email sequence runs itself now.",
+            name: "Tom Bradley",
+            role: "Self-Help Author",
+            avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80"]
+    },
+    "web5": {
+        id: "web5",
+        category: "website",
+        tag: "Author Website & Sales Funnel Design",
+        title: "Author Membership Platform",
+        subtitle: "Recurring revenue model, 2x community growth",
+        heroImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
+        metrics: [{value:"2x",label:"Community Growth"}, {value:"$12K",label:"Monthly MRR"}, {value:"6",label:"Months"}],
+        challenge: "A successful author wanted to monetize their audience beyond book sales with a membership community but didn't know how to structure it.",
+        strategy: "Built a membership platform with gated content, community forums, monthly live sessions, and tiered pricing. Integrated payment processing and content delivery.",
+        tools: ["Circle", "Stripe", "Zapier", "Webflow"],
+        timeline: "6 weeks to launch",
+        testimonial: {
+            quote: "The membership platform changed my business model. Recurring revenue gives me stability I never had before.",
+            name: "Nina Patel",
+            role: "Writing Coach & Author",
+            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80", "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80"]
+    },
+    "ad1": {
+        id: "ad1",
+        category: "ads",
+        tag: "Ads for Books",
+        title: "Meta Ads Book Launch",
+        subtitle: "4.2x ROAS, 3K copies sold",
+        heroImage: "https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=1200&q=80",
+        metrics: [{value:"4.2x",label:"ROAS"}, {value:"3K",label:"Copies Sold"}, {value:"$8.5K",label:"Ad Spend"}],
+        challenge: "A fiction author needed to drive book sales through Facebook/Instagram ads but was burning budget with poor targeting and creative.",
+        strategy: "Restructured campaigns with lookalike audiences, tested 20+ creative variations, and implemented retargeting funnels. Optimized for purchase events, not clicks.",
+        tools: ["Facebook Ads Manager", "Canva", "Google Analytics", "BookFunnel"],
+        timeline: "30 days to optimize and scale",
+        testimonial: {
+            quote: "4.2x return on ad spend is unheard of in publishing. Tobest's ad strategy is worth every penny.",
+            name: "Chris Anderson",
+            role: "Fiction Author",
+            avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=800&q=80", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"]
+    },
+    "ad2": {
+        id: "ad2",
+        category: "ads",
+        tag: "Ads for Books",
+        title: "Amazon KDP Advertising",
+        subtitle: "Best Seller rank achieved, ACOS under 25%",
+        heroImage: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=1200&q=80",
+        metrics: [{value:"#1",label:"Best Seller Rank"}, {value:"22%",label:"ACOS"}, {value:"45",label:"Days"}],
+        challenge: "A non-fiction author was struggling with Amazon Advertising, spending money but not reaching Best Seller status or profitable ACOS.",
+        strategy: "Optimized Sponsored Product and Sponsored Brand campaigns with precise keyword targeting, negative keyword management, and bid optimization. Monitored daily and adjusted.",
+        tools: ["Amazon Advertising", "Publisher Rocket", "Helium 10", "Excel"],
+        timeline: "45 days to Best Seller status",
+        testimonial: {
+            quote: "Best Seller badge in 45 days with profitable ACOS. I thought Amazon ads were a money pit until Tobest took over.",
+            name: "Patricia Moore",
+            role: "Non-Fiction Author",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=800&q=80", "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"]
+    },
+    "ad3": {
+        id: "ad3",
+        category: "ads",
+        tag: "Ads for Books",
+        title: "Google Ads for Authors",
+        subtitle: "Search campaign, $12 cost per acquisition",
+        heroImage: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=1200&q=80",
+        metrics: [{value:"$12",label:"Cost Per Acquisition"}, {value:"5.8%",label:"Conversion Rate"}, {value:"60",label:"Days"}],
+        challenge: "A history author wanted to capture readers actively searching for books in their niche but had no Google Ads experience.",
+        strategy: "Built search campaigns targeting book-related keywords, competitor author names, and genre terms. Created dedicated landing pages for each ad group.",
+        tools: ["Google Ads", "Google Analytics", "Unbounce", "SEMrush"],
+        timeline: "60 days to profitable campaigns",
+        testimonial: {
+            quote: "$12 to acquire a reader who spends $50+ on my books. Google Ads is now my most profitable channel.",
+            name: "Dr. Alan Foster",
+            role: "History Author",
+            avatar: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=800&q=80", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"]
+    },
+    "ad4": {
+        id: "ad4",
+        category: "ads",
+        tag: "Ads for Books",
+        title: "Retargeting Funnel",
+        subtitle: "25% cart recovery rate, rebuilt customer relationships",
+        heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80",
+        metrics: [{value:"25%",label:"Cart Recovery"}, {value:"3.2x",label:"ROAS"}, {value:"30",label:"Days"}],
+        challenge: "An author was losing 95% of website visitors without capturing them. No retargeting strategy meant wasted traffic and lost sales.",
+        strategy: "Implemented pixel tracking, built custom audiences, and created retargeting ad sequences for cart abandoners, page visitors, and email non-openers.",
+        tools: ["Facebook Pixel", "Google Tag Manager", "AdRoll", "Klaviyo"],
+        timeline: "30 days to full implementation",
+        testimonial: {
+            quote: "Recovering 25% of abandoned carts literally doubled my revenue. The retargeting funnel is pure magic.",
+            name: "Jessica Lee",
+            role: "Romance Author",
+            avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80", "https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=800&q=80"]
+    },
+    "seo1": {
+        id: "seo1",
+        category: "seo",
+        tag: "SEO & PR for Books",
+        title: "#1 Google Ranking",
+        subtitle: "Book category domination achieved",
+        heroImage: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=1200&q=80",
+        metrics: [{value:"#1",label:"Google Ranking"}, {value:"12K",label:"Monthly Traffic"}, {value:"4",label:"Months"}],
+        challenge: "A cookbook author wanted to rank #1 on Google for their niche but had zero SEO strategy and a brand new website.",
+        strategy: "Conducted keyword research, optimized on-page SEO, built quality backlinks through guest posting and recipe features, and created pillar content strategy.",
+        tools: ["Ahrefs", "Surfer SEO", "WordPress", "Google Search Console"],
+        timeline: "4 months to #1 ranking",
+        testimonial: {
+            quote: "Ranking #1 on Google for 'best vegan cookbook' changed everything. Organic traffic is my #1 sales channel now.",
+            name: "Maria Santos",
+            role: "Cookbook Author",
+            avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=800&q=80", "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80"]
+    },
+    "seo2": {
+        id: "seo2",
+        category: "seo",
+        tag: "SEO & PR for Books",
+        title: "Media Coverage Campaign",
+        subtitle: "Featured in 12 publications, 5x quality inquiries",
+        heroImage: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80",
+        metrics: [{value:"12",label:"Publications"}, {value:"5x",label:"Inquiry Increase"}, {value:"90",label:"Days"}],
+        challenge: "A business author needed press coverage and media mentions to build authority but had no PR connections or press kit.",
+        strategy: "Created compelling press kit, pitched to relevant journalists and podcasts, secured guest article placements, and leveraged HARO for ongoing media opportunities.",
+        tools: ["HARO", "Muck Rack", "Canva", "Google Alerts"],
+        timeline: "90 days campaign duration",
+        testimonial: {
+            quote: "Being featured in Forbes and Inc. changed how people perceive my brand. Media coverage is the best marketing investment.",
+            name: "Richard Blake",
+            role: "Business Author",
+            avatar: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80", "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80"]
+    },
+    "seo3": {
+        id: "seo3",
+        category: "seo",
+        tag: "SEO & PR for Books",
+        title: "Content SEO Strategy",
+        subtitle: "340% organic traffic increase in 90 days",
+        heroImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80",
+        metrics: [{value:"340%",label:"Traffic Increase"}, {value:"45K",label:"Monthly Visitors"}, {value:"90",label:"Days"}],
+        challenge: "A fiction author had a blog but it wasn't driving traffic or book sales. Content was random and not optimized for search.",
+        strategy: "Developed a content calendar targeting reader search intent, optimized existing posts, created new SEO-focused articles, and built internal linking structure.",
+        tools: ["Ahrefs", "Surfer SEO", "WordPress", "Grammarly"],
+        timeline: "90 days to 340% increase",
+        testimonial: {
+            quote: "340% more organic traffic in 90 days. My blog went from a hobby to my most powerful marketing tool.",
+            name: "Sophie Turner",
+            role: "Fiction Author",
+            avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80", "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80"]
+    },
+    "fmt1": {
+        id: "fmt1",
+        category: "formatting",
+        tag: "Formatting & Book Design",
+        title: "Bestseller Cover Design",
+        subtitle: "Award-winning fiction cover, doubled pre-orders",
+        heroImage: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200&q=80",
+        metrics: [{value:"2x",label:"Pre-orders"}, {value:"#1",label:"Design Award"}, {value:"3",label:"Weeks"}],
+        challenge: "A debut author had a brilliant manuscript but a generic cover that wasn't selling the book's quality or genre appeal.",
+        strategy: "Designed a genre-appropriate, emotionally compelling cover with professional typography, color psychology, and thumbnail optimization for Amazon.",
+        tools: ["Adobe Photoshop", "Illustrator", "InDesign", "Procreate"],
+        timeline: "3 weeks from concept to final",
+        testimonial: {
+            quote: "The cover won a design award and doubled my pre-orders. Readers judge books by covers—Tobest makes sure they judge yours positively.",
+            name: "Alex Rivera",
+            role: "Debut Author",
+            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&q=80", "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80"]
+    },
+    "fmt2": {
+        id: "fmt2",
+        category: "formatting",
+        tag: "Formatting & Book Design",
+        title: "Professional Interior Layout",
+        subtitle: "Print-ready formatting, 300+ pages",
+        heroImage: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1200&q=80",
+        metrics: [{value:"300+",label:"Pages"}, {value:"0",label:"Formatting Errors"}, {value:"2",label:"Weeks"}],
+        challenge: "A non-fiction author had a 300+ page manuscript that needed professional interior formatting for both print and ebook versions.",
+        strategy: "Created custom interior design with proper margins, typography hierarchy, chapter openings, headers/footers, and ensured KDP print-ready specifications.",
+        tools: ["Adobe InDesign", "Vellum", "Kindle Create", "Acrobat"],
+        timeline: "2 weeks for print and ebook",
+        testimonial: {
+            quote: "The interior looks like it came from a major publisher. Zero errors, perfect margins, beautiful chapter pages.",
+            name: "Diane Foster",
+            role: "Non-Fiction Author",
+            avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800&q=80", "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&q=80"]
+    },
+    "fmt3": {
+        id: "fmt3",
+        category: "formatting",
+        tag: "Formatting & Book Design",
+        title: "Ebook & Print Bundle",
+        subtitle: "Multi-format design, Amazon KDP compliant",
+        heroImage: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80",
+        metrics: [{value:"3",label:"Formats"}, {value:"100%",label:"KDP Compliant"}, {value:"5",label:"Days"}],
+        challenge: "An author needed their book formatted for Kindle, paperback, and hardcover simultaneously without errors or rejections.",
+        strategy: "Designed master template that auto-adapts to each format, ensured proper TOC, metadata, and cover spine calculations. Tested on all devices.",
+        tools: ["Adobe InDesign", "Vellum", "Calibre", "KDP Preview"],
+        timeline: "5 days for all three formats",
+        testimonial: {
+            quote: "All three formats approved on first submission. No rejections, no errors, no stress. Tobest knows KDP inside and out.",
+            name: "Kevin O'Brien",
+            role: "Indie Author",
+            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80", "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80"]
+    },
+    "fmt4": {
+        id: "fmt4",
+        category: "formatting",
+        tag: "Formatting & Book Design",
+        title: "Typography & Brand System",
+        subtitle: "Consistent visual identity across 5-book series",
+        heroImage: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80",
+        metrics: [{value:"5",label:"Books"}, {value:"1",label:"Brand System"}, {value:"3",label:"Weeks"}],
+        challenge: "A fantasy series author needed a cohesive visual identity across 5 books that readers could instantly recognize as part of the same world.",
+        strategy: "Created a comprehensive brand system including cover templates, typography rules, color palette, map illustrations, and interior design guidelines.",
+        tools: ["Adobe InDesign", "Illustrator", "Photoshop", "Figma"],
+        timeline: "3 weeks for complete system",
+        testimonial: {
+            quote: "Readers can spot my series from across the bookstore. The brand system Tobest created is my secret weapon.",
+            name: "Marcus Webb",
+            role: "Fantasy Series Author",
+            avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80", "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800&q=80"]
+    },
+    "fmt5": {
+        id: "fmt5",
+        category: "formatting",
+        tag: "Formatting & Book Design",
+        title: "3D Book Mockups",
+        subtitle: "Marketing assets for ads and social media",
+        heroImage: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1200&q=80",
+        metrics: [{value:"20+",label:"Mockups"}, {value:"5",label:"Angles"}, {value:"1",label:"Week"}],
+        challenge: "An author needed professional 3D book mockups for marketing but couldn't afford expensive photography or lacked design skills.",
+        strategy: "Created photorealistic 3D mockups in multiple angles and settings (desk, hand-held, shelf, etc.) optimized for social media, ads, and website use.",
+        tools: ["Adobe Photoshop", "Dimension", "Blender", "Canva"],
+        timeline: "1 week for complete mockup set",
+        testimonial: {
+            quote: "The mockups look like professional product photography. My ads and social posts look like they cost thousands to produce.",
+            name: "Rachel Kim",
+            role: "Self-Published Author",
+            avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80"
+        },
+        gallery: ["https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&q=80", "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80"]
+    },
+};
+
+
+const filterWrapper = document.getElementById('filterWrapper');
+const filterTrigger = document.getElementById('filterTrigger');
+const filterLabel = document.getElementById('filterLabel');
+const filterOptions = document.querySelectorAll('.filter-option');
+const workCards = document.querySelectorAll('.work-card');
+
+filterTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    filterWrapper.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+    if (!filterWrapper.contains(e.target)) {
+        filterWrapper.classList.remove('open');
+    }
+});
+
+filterOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+        const filter = opt.dataset.filter;
+        filterLabel.textContent = opt.textContent;
+        filterOptions.forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+        filterWrapper.classList.remove('open');
+
+        workCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.style.display = '';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 400);
+            }
+        });
+    });
+});
+
+const modal = document.getElementById('projectModal');
+const modalContent = document.getElementById('modalContent');
+
+function openModal(projectId) {
+    const p = projects[projectId];
+    if (!p) return;
+
+    const related = Object.values(projects).filter(r => r.category === p.category && r.id !== p.id).slice(0, 3);
+
+    const metricsHtml = p.metrics.map(m => `
+        <div class="metric-box">
+            <div class="metric-value">${m.value}</div>
+            <div class="metric-label">${m.label}</div>
+        </div>
+    `).join('');
+
+    const galleryHtml = p.gallery.map(g => `
+        <div class="showcase-img">
+            <img src="${g}" alt="${p.title}" loading="lazy">
+        </div>
+    `).join('');
+
+    const toolsHtml = p.tools.map(t => `<span class="tool-tag">${t}</span>`).join('');
+
+    const relatedHtml = related.length > 0 ? `
+        <div class="modal-section">
+            <div class="modal-section-title">Related Projects</div>
+            <div class="related-grid">
+                ${related.map(r => `
+                    <div class="related-card" onclick="switchModal('${r.id}')">
+                        <div class="related-card-img">
+                            <img src="${r.heroImage}" alt="${r.title}" loading="lazy">
+                        </div>
+                        <div class="related-card-info">
+                            <div class="related-card-title">${r.title}</div>
+                            <div class="related-card-cat">${r.tag}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    ` : '';
+
+    modalContent.innerHTML = `
+        <div class="modal-hero-img">
+            <img src="${p.heroImage}" alt="${p.title}">
+        </div>
+        <div class="modal-header">
+            <span class="modal-category">${p.tag}</span>
+            <h2 class="modal-title">${p.title}</h2>
+            <p class="modal-subtitle">${p.subtitle}</p>
+        </div>
+        <div class="modal-metrics">${metricsHtml}</div>
+        <div class="modal-section">
+            <div class="modal-section-title">The Challenge</div>
+            <div class="modal-text"><p>${p.challenge}</p></div>
+        </div>
+        <div class="modal-section">
+            <div class="modal-section-title">Strategy & Execution</div>
+            <div class="modal-text"><p>${p.strategy}</p></div>
+        </div>
+        <div class="modal-section">
+            <div class="modal-section-title">Visual Showcase</div>
+            <div class="showcase-grid">${galleryHtml}</div>
+        </div>
+        <div class="modal-section">
+            <div class="modal-section-title">Tools Used</div>
+            <div class="tools-list">${toolsHtml}</div>
+        </div>
+        <div class="modal-section">
+            <div class="modal-section-title">Timeline</div>
+            <div class="timeline-box">
+                <div class="timeline-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+                <div class="timeline-text">${p.timeline}</div>
+            </div>
+        </div>
+        <div class="modal-section">
+            <div class="modal-section-title">Client Testimonial</div>
+            <div class="testimonial-box">
+                <div class="testimonial-quote">${p.testimonial.quote}</div>
+                <div class="testimonial-author">
+                    <img src="${p.testimonial.avatar}" alt="${p.testimonial.name}" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">${p.testimonial.name}</div>
+                        <div class="testimonial-role">${p.testimonial.role}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        ${relatedHtml}
+    `;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function switchModal(projectId) {
+    modalContent.style.opacity = '0';
+    modalContent.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+        openModal(projectId);
+        modalContent.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        modalContent.style.opacity = '1';
+        modalContent.style.transform = 'translateY(0)';
+    }, 300);
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+        modalContent.innerHTML = '';
+    }, 400);
+}
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+});
+
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '100%';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.background = 'rgba(10, 10, 15, 0.95)';
+    navLinks.style.backdropFilter = 'blur(20px)';
+    navLinks.style.padding = '24px';
+    navLinks.style.borderBottom = '1px solid var(--border)';
+    navLinks.style.gap = '20px';
+});
+</script>
+</body>
+</html>
