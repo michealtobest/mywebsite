@@ -2014,8 +2014,27 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
     navLinks.style.gap = '20px';
 });
 </script>
+// Trigger "all" filter on page load to show all cards
+document.addEventListener('DOMContentLoaded', () => {
+    workCards.forEach(card => {
+        card.style.display = '';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    });
+    filterWrapper.classList.remove('open');
+});
+
 // Scroll reveal observer
 const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
