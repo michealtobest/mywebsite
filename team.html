@@ -554,7 +554,23 @@
             .footer-cta { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 40px; }
             .cta-buttons { flex-direction: column; align-items: center; }
         }
+
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
     </style>
+
 <base target="_blank">
 </head>
 <body>
@@ -569,7 +585,7 @@
             <a href="index.html" class="nav-link">Home</a>
             <a href="works.html" class="nav-link">Work</a>
             <a href="team.html" class="nav-link">Team</a>
-            <a href="index.html#services" class="nav-link">Services</a>
+            <a href="services.html" class="nav-link">Services</a>
             <a href="index.html#contact" class="nav-cta">Let's Connect</a>
         </div>
         <button class="mobile-menu-btn" aria-label="Menu">
@@ -592,7 +608,7 @@
 
 <section class="team-section">
     <div class="team-grid">
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-1">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Alex Morgan" loading="lazy">
             </div>
@@ -612,7 +628,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-2">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Sarah Chen" loading="lazy">
             </div>
@@ -632,7 +648,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-3">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Marcus Johnson" loading="lazy">
             </div>
@@ -652,7 +668,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-4">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="Emily Rodriguez" loading="lazy">
             </div>
@@ -672,7 +688,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-1">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="David Park" loading="lazy">
             </div>
@@ -692,7 +708,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-2">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Lisa Thompson" loading="lazy">
             </div>
@@ -712,7 +728,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-3">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="James Wright" loading="lazy">
             </div>
@@ -732,7 +748,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-4">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Nina Patel" loading="lazy">
             </div>
@@ -752,7 +768,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-1">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Tom Bradley" loading="lazy">
             </div>
@@ -772,7 +788,7 @@
                 </div>
             </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal reveal-delay-2">
             <div class="team-card-photo">
                 <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80" alt="Anna Schmidt" loading="lazy">
             </div>
@@ -801,28 +817,28 @@
         <h2 class="why-title">Why Our Team Works</h2>
     </div>
     <div class="why-grid">
-        <div class="why-card">
+        <div class="why-card reveal reveal-delay-1">
             <div class="why-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </div>
             <h3 class="why-card-title">Specialized Experts</h3>
             <p class="why-card-desc">Each team member focuses on one area of author growth, bringing deep expertise rather than surface-level knowledge.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-delay-2">
             <div class="why-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             </div>
             <h3 class="why-card-title">Collaborative Approach</h3>
             <p class="why-card-desc">Our specialists work together on every project, ensuring your brand voice stays consistent across all channels.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-delay-3">
             <div class="why-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
             </div>
             <h3 class="why-card-title">Results-Driven Strategies</h3>
             <p class="why-card-desc">Every recommendation is backed by data and tested methodology. We measure what matters and optimize for outcomes.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-delay-4">
             <div class="why-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
             </div>
@@ -874,7 +890,7 @@
                 <li><a href="index.html" class="footer-link">Home</a></li>
                 <li><a href="works.html" class="footer-link">Work</a></li>
                 <li><a href="team.html" class="footer-link">Team</a></li>
-                <li><a href="index.html#services" class="footer-link">Services</a></li>
+                <li><a href="services.html" class="footer-link">Services</a></li>
                 <li><a href="index.html#contact" class="footer-link">Connect</a></li>
             </ul>
         </div>
@@ -928,6 +944,17 @@ mobileMenuBtn.addEventListener('click', () => {
         navLinks.style.gap = '20px';
     }
 });
+
+// Scroll reveal observer
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
