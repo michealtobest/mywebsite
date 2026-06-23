@@ -866,12 +866,30 @@
             .modal-metrics { grid-template-columns: 1fr; }
             .showcase-grid { grid-template-columns: 1fr; }
             .related-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
             .footer-cta { font-size: clamp(2rem, 8vw, 4rem); margin-bottom: 40px; }
             .work-card-content { padding: 24px; }
             .work-card-title { font-size: 20px; }
         }
+
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
     </style>
+
 <base target="_blank">
 </head>
 <body>
@@ -886,7 +904,7 @@
             <a href="index.html" class="nav-link">Home</a>
             <a href="works.html" class="nav-link">Work</a>
             <a href="team.html" class="nav-link">Team</a>
-            <a href="index.html#services" class="nav-link">Services</a>
+            <a href="services.html" class="nav-link">Services</a>
             <a href="index.html#contact" class="nav-cta">Let's Connect</a>
         </div>
         <button class="mobile-menu-btn" aria-label="Menu">
@@ -928,7 +946,7 @@
 
 <section class="work-section">
     <div class="work-grid" id="workGrid">
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal reveal-delay-2" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80" alt="45K Followers in 60 Days" loading="lazy">
             </div>
@@ -944,7 +962,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal reveal-delay-3" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?w=1200&q=80" alt="TikTok Book Launch Campaign" loading="lazy">
             </div>
@@ -960,7 +978,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal reveal-delay-4" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1611162618335-8b1569810432?w=1200&q=80" alt="Twitter Author Community Build" loading="lazy">
             </div>
@@ -976,7 +994,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal reveal-delay-5" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=1200&q=80" alt="YouTube Author Channel Growth" loading="lazy">
             </div>
@@ -992,7 +1010,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="social-media">
+        <div class="work-card reveal reveal-delay-1" data-category="social-media">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80" alt="Pinterest Book Marketing" loading="lazy">
             </div>
@@ -1008,7 +1026,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal reveal-delay-2" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80" alt="Bestseller Author Website" loading="lazy">
             </div>
@@ -1024,7 +1042,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal reveal-delay-3" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" alt="High-Converting Book Funnel" loading="lazy">
             </div>
@@ -1040,7 +1058,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal reveal-delay-4" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&q=80" alt="Book Launch Landing Page" loading="lazy">
             </div>
@@ -1056,7 +1074,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal reveal-delay-5" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&q=80" alt="Automated Email Sequence" loading="lazy">
             </div>
@@ -1072,7 +1090,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="website">
+        <div class="work-card reveal reveal-delay-1" data-category="website">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="Author Membership Platform" loading="lazy">
             </div>
@@ -1088,7 +1106,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="ads">
+        <div class="work-card reveal reveal-delay-2" data-category="ads">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1553729459-afe8c2fc8d0e?w=1200&q=80" alt="Meta Ads Book Launch" loading="lazy">
             </div>
@@ -1104,7 +1122,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="ads">
+        <div class="work-card reveal reveal-delay-3" data-category="ads">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=1200&q=80" alt="Amazon KDP Advertising" loading="lazy">
             </div>
@@ -1120,7 +1138,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="ads">
+        <div class="work-card reveal reveal-delay-4" data-category="ads">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=1200&q=80" alt="Google Ads for Authors" loading="lazy">
             </div>
@@ -1136,7 +1154,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="ads">
+        <div class="work-card reveal reveal-delay-5" data-category="ads">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" alt="Retargeting Funnel" loading="lazy">
             </div>
@@ -1152,7 +1170,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="seo">
+        <div class="work-card reveal reveal-delay-1" data-category="seo">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=1200&q=80" alt="#1 Google Ranking" loading="lazy">
             </div>
@@ -1168,7 +1186,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="seo">
+        <div class="work-card reveal reveal-delay-2" data-category="seo">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&q=80" alt="Media Coverage Campaign" loading="lazy">
             </div>
@@ -1184,7 +1202,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="seo">
+        <div class="work-card reveal reveal-delay-3" data-category="seo">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80" alt="Content SEO Strategy" loading="lazy">
             </div>
@@ -1200,7 +1218,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal reveal-delay-4" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200&q=80" alt="Bestseller Cover Design" loading="lazy">
             </div>
@@ -1216,7 +1234,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal reveal-delay-5" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1200&q=80" alt="Professional Interior Layout" loading="lazy">
             </div>
@@ -1232,7 +1250,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal reveal-delay-1" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80" alt="Ebook & Print Bundle" loading="lazy">
             </div>
@@ -1248,7 +1266,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal reveal-delay-2" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80" alt="Typography & Brand System" loading="lazy">
             </div>
@@ -1264,7 +1282,7 @@
                 </button>
             </div>
         </div>
-        <div class="work-card" data-category="formatting">
+        <div class="work-card reveal reveal-delay-3" data-category="formatting">
             <div class="work-card-image">
                 <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1200&q=80" alt="3D Book Mockups" loading="lazy">
             </div>
@@ -1313,7 +1331,7 @@
                 <li><a href="index.html" class="footer-link">Home</a></li>
                 <li><a href="works.html" class="footer-link">Work</a></li>
                 <li><a href="team.html" class="footer-link">Team</a></li>
-                <li><a href="index.html#services" class="footer-link">Services</a></li>
+                <li><a href="services.html" class="footer-link">Services</a></li>
                 <li><a href="index.html#contact" class="footer-link">Connect</a></li>
             </ul>
         </div>
@@ -1986,5 +2004,15 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
     navLinks.style.gap = '20px';
 });
 </script>
+// Scroll reveal observer
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </body>
 </html>
