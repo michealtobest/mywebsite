@@ -2017,6 +2017,12 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
 // Trigger "all" filter on page load to show all cards
 document.addEventListener('DOMContentLoaded', () => {
     workCards.forEach(card => {
+        </script>
+
+<script>
+// Trigger "all" filter on page load to show all cards
+document.addEventListener('DOMContentLoaded', () => {
+    workCards.forEach(card => {
         card.style.display = '';
         card.style.opacity = '1';
         card.style.transform = 'translateY(0)';
@@ -2035,13 +2041,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </body>
 </html>
